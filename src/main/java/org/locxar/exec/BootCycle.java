@@ -19,6 +19,9 @@ import org.locxar.core.Npc;
 import org.locxar.core.Player;
 import org.locxar.core.Turn;
 import org.locxar.core.Type;
+import org.locxar.core.map.Location;
+import org.locxar.core.map.MapGenerator;
+import org.locxar.core.map.Mapper;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -37,12 +40,16 @@ public class BootCycle
     private long window;
 
     /** The turn. */
-    private Turn turn;
+    private Turn turn = new Turn();
 
     // Create new Player object
     private Player player = new Player();
     // Create new Npc object
     private Npc npc = new Npc();
+    
+    Mapper map = new Mapper();
+    
+    MapGenerator mg = new MapGenerator();
 
     private int NEWTURN = GL_TRUE;
 
@@ -52,6 +59,7 @@ public class BootCycle
     public BootCycle()
     {
 	// TODO Auto-generated constructor stub
+	this.map.setMap(this.mg.generateTestMap(map.getMap()));
     }
 
     /**
@@ -175,14 +183,21 @@ public class BootCycle
 	    // Poll for window events. The key callback above will only be
 	    // invoked during this call.
 	    glfwPollEvents();
-
+	    
+	    // map.getMap().put(new Location(1, 2), "A");
+	    // this.map.getMap().put(new Location(2, 1), "B");
+	    // this.map.getMap().put(new Location(1, 1), "C");
+	    // this.map.getMap().put(new Location(2, 2), "D");
+	    // this.map.addLocation(new Location(1, 2), "B");
+	    
 	    if (NEWTURN == GL_TRUE)
 	    {
 		System.out.println("[EVENT] New Turn");
 		System.out.println("[STAT] actionPoints: " + this.player.getActionPoints());
+		
 		// Deactivate start of a new Turn until the turn is over.
 		this.setNEWTURN(GL_FALSE);
-		turn.turnListener(turn, this.getPlayer(), this.getNpc());
+		this.turn.turnListener(this.turn, this.getPlayer(), this.getNpc());
 
 		// Allow a new Turn.
 		this.setNEWTURN(GL_TRUE);

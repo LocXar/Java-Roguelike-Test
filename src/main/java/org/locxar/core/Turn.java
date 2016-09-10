@@ -72,7 +72,6 @@ public class Turn
    public void turnListener(Turn turn, Player player, Npc npc)
    {
        
-       
        switch (turn.TYPE.getTypeId())
        {
 	   case 0:
@@ -100,6 +99,7 @@ public class Turn
 	while (player.getActionPoints() > 0.0)
 	{
 	    System.out.println("Actionpoints over 10: " + player.getActionPoints());
+	    player.setActionPoints(player.getActionPoints() - 1);
 	}
 	this.setTYPE(Type.NPC);
     }
