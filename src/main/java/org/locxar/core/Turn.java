@@ -21,11 +21,9 @@
  */
 package org.locxar.core;
 
-import org.locxar.exec.BootCycle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Turn.
  *
@@ -33,12 +31,11 @@ import org.slf4j.LoggerFactory;
  */
 public class Turn
 {
-    
     /** The Constant slf4jLogger. */
-    private final static Logger slf4jLogger = LoggerFactory.getLogger(Turn.class);
-    
+    private static final Logger LOGGER = LoggerFactory.getLogger(Turn.class);
+
     /** The type. */
-    private Type TYPE = null;
+    private Type type = null;
 
     /** The start turn. */
     private boolean startTurn;
@@ -56,12 +53,13 @@ public class Turn
     /**
      * Instantiates a new turn.
      *
-     * @param type the type
+     * @param a
+     *            the type
      */
-    public Turn(Type type)
+    public Turn(final Type a)
     {
 	// TODO Auto-generated constructor stub
-	this.setTYPE(type);
+	this.setTYPE(a);
     }
 
     /**
@@ -69,82 +67,92 @@ public class Turn
      *
      * @return the type
      */
-    public Type getTYPE()
+    public final Type getTYPE()
     {
-	return TYPE;
+	return type;
     }
 
     /**
      * Sets the type.
      *
-     * @param TYPE the new type
+     * @param a
+     *            the new type
      */
-    public void setTYPE(Type TYPE)
+    public final void setTYPE(final Type a)
     {
-	this.TYPE = TYPE;
+	this.type = a;
     }
 
-   /**
-    * The turnListener check the actual <var>TYPE</var> Id and starts <code>playerTurn()</code> or <code>npcTurn()</code>.
-    *
-    * @param turn the actual turn from the BootCycle.
-    * @param player the player
-    * @param npc the npc
-    * @throws IllegalStateException If the actual <var>TYPE</var> is null or unknown.
-    */
-   public void turnListener(Turn turn, Player player, Npc npc)
-   {
-       
-       switch (turn.TYPE.getTypeId())
-       {
-	   case 0:
-	       playerTurn(player, npc);
-	       break;
-           
-           case 1:
-    	   	npcTurn(player, npc);
-    	   	break;
-           
-           default:
-               new IllegalStateException("Turn Type unknown.");
-       }
-   }
+    /**
+     * The turnListener check the actual <code>TYPE</code> Id and starts
+     * <code>playerTurn()</code> or <code>npcTurn()</code>.
+     *
+     * @param turn
+     *            the actual turn from the BootCycle.
+     * @param player
+     *            the player
+     * @param npc
+     *            the npc
+     * @throws IllegalStateException
+     *             If the actual <code>TYPE</code> is null or unknown.
+     */
+    public final void turnListener(final Turn turn, final Player player, final Npc npc)
+    {
+
+	switch (turn.type.getTypeId())
+	{
+	case 0:
+	    playerTurn(player, npc);
+	    break;
+
+	case 1:
+	    npcTurn(player, npc);
+	    break;
+
+	default:
+	    new IllegalStateException("Turn Type unknown.");
+	}
+    }
 
     /**
      * Player turn.
      *
-     * @param player the player
-     * @param npc the npc
+     * @param player
+     *            the player
+     * @param npc
+     *            the npc
      */
-    private void playerTurn(Player player, Npc npc)
+    private void playerTurn(final Player player, final Npc npc)
     {
 	// TODO Auto-generated method stub
-	slf4jLogger.info("This is the PlayerTurn!");
+	LOGGER.info("This is the PlayerTurn!");
 	while (player.getActionPoints() > 0.0)
 	{
 	    System.out.println("Actionpoints over 10: " + player.getActionPoints());
 	    player.setActionPoints(player.getActionPoints() - 1);
 	}
-	
-	if(player.getActionPoints() == 0)
+
+	if (player.getActionPoints() == 0)
 	{
 	    GameOver go = new GameOver(player, npc);
 	    this.setStartTurn(go.isStartTurn());
 	}
-	
+
 	this.setTYPE(Type.NPC);
     }
 
     /**
      * Npc turn.
      *
-     * @param player the player
-     * @param npc the npc
+     * @param player
+     *            the player
+     * @param npc
+     *            the npc
      */
-    private void npcTurn(Player player, Npc npc)
+    private void npcTurn(final Player player, final Npc npc)
     {
 	// TODO Auto-generated method stub
-	slf4jLogger.info("This is the NpcTurn!");
+	LOGGER.info("This is the NpcTurn!");
 	this.setTYPE(Type.PLAYER);
     }
 
@@ -153,7 +161,7 @@ public class Turn
      *
      * @return true, if is start turn
      */
-    public boolean isStartTurn()
+    public final boolean isStartTurn()
     {
 	return startTurn;
     }
@@ -161,11 +169,12 @@ public class Turn
     /**
      * Sets the start turn.
      *
-     * @param startTurn the new start turn
+     * @param st
+     *            the new start turn
      */
-    public void setStartTurn(boolean startTurn)
+    public final void setStartTurn(final boolean st)
     {
-	this.startTurn = startTurn;
+	this.startTurn = st;
     }
 
 }

@@ -23,7 +23,6 @@ package org.locxar.core.map;
 
 import java.util.Map;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MapGenerator.
  *
@@ -38,26 +37,25 @@ public class MapGenerator
     public MapGenerator()
     {
 	// TODO Auto-generated constructor stub
-	
+
     }
-    
+
     /**
      * Generate test map.
      *
      * @param map the map
      * @return the map
      */
-    public Map<Location, Character> generateTestMap(Map<Location, Character> map)
+    public final Map<Location, Character> generateTestMap(final Map<Location, Character> map)
     {
-	for(int i = 0; i <= 256; i++) // Zeilen
+	for (int i = 0; i <= 256; i++) // Zeilen
 	{
 	    for (int j = 0; j <= 256; j++) // Spalten
 	    {
-		if(i == 0 || i == 256 || j == 0 || j == 256)
+		if (i == 0 || i == 256 || j == 0 || j == 256)
 		{
 		    map.put(new Location(i, j), '#');
-		}
-		else
+		} else
 		{
 		    map.put(new Location(i, j), '.');
 		}

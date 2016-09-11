@@ -21,7 +21,6 @@
  */
 package org.locxar.core;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Actor.
  *

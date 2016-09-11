@@ -27,7 +27,6 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Mapper.
  *
@@ -35,30 +34,30 @@ import org.slf4j.LoggerFactory;
  */
 public class Mapper
 {
-    
+
     /** The Constant slf4jLogger. */
-    private final static Logger slf4jLogger = LoggerFactory.getLogger(Mapper.class);
-    
+    private static final Logger LOGGER = LoggerFactory.getLogger(Mapper.class);
+
     /** The map. */
-    Map<Location, Character> map;
+    private Map<Location, Character> map;
 
     /**
      * Instantiates a new mapper.
      */
     public Mapper()
     {
-	// TODO Auto-generated constructor stub
 	this.map = new HashMap<Location, Character>();
     }
 
     /**
      * Instantiates a new mapper.
      *
-     * @param map the map
+     * @param m
+     *            the map
      */
-    public Mapper(Map<Location, Character> map)
+    public Mapper(final Map<Location, Character> m)
     {
-	this.map = map;
+	this.map = m;
     }
 
     /**
@@ -66,7 +65,7 @@ public class Mapper
      *
      * @return the map
      */
-    public Map<Location, Character> getMap()
+    public final Map<Location, Character> getMap()
     {
 	return this.map;
     }
@@ -74,27 +73,30 @@ public class Mapper
     /**
      * Sets the map.
      *
-     * @param map the map
+     * @param m
+     *            the map
      */
-    public void setMap(Map<Location, Character> map)
+    public final void setMap(final Map<Location, Character> m)
     {
-	this.map = map;
+	this.map = m;
     }
 
     /**
      * Adds the location.
      *
-     * @param loc the loc
-     * @param s the s
+     * @param loc
+     *            the loc
+     * @param s
+     *            the s
      */
-    public void addLocation(Location loc, Character s)
+    public final void addLocation(final Location loc, final Character s)
     {
 	if (map.containsKey(loc))
 	{
 	    this.map.put(loc, s);
 	} else
 	{
-	    slf4jLogger.info("Mapper.addLocation(): Location found!");
+	    LOGGER.info("Mapper.addLocation(): Location found!");
 	}
     }
 }

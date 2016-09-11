@@ -23,12 +23,12 @@ package org.locxar.exec;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.lwjgl.Version;
+import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.glfw.GLFWVidMode;
+import org.lwjgl.opengl.GL;
 
-import org.lwjgl.*;
-import org.lwjgl.glfw.*;
-import org.lwjgl.opengl.*;
-
-import static org.lwjgl.glfw.Callbacks.*;
+import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -39,7 +39,6 @@ import org.locxar.core.Turn;
 import org.locxar.core.map.MapGenerator;
 import org.locxar.core.map.Mapper;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BootCycle.
  *
@@ -49,20 +48,20 @@ public class BootCycle
 {
 
     /** The Constant slf4jLogger. */
-    private final static Logger slf4jLogger = LoggerFactory.getLogger(BootCycle.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BootCycle.class);
 
     /** The window. */
     // The window handle
-    private long window;
+    private long display;
 
     /** The title. */
-    private final String TITLE = "Test Title...";
+    private final String title = "Test Title...";
 
     /** The width. */
-    private final int WIDTH = 1024;
+    private final int width = 1024;
 
     /** The height. */
-    private final int HEIGHT = 768;
+    private final int height = 768;
 
     /** The turn. */
     private Turn turn = new Turn();
@@ -76,13 +75,13 @@ public class BootCycle
     private Npc npc = new Npc();
 
     /** The map. */
-    Mapper map = new Mapper();
+    private Mapper map = new Mapper();
 
     /** The mg. */
-    MapGenerator mg = new MapGenerator();
+    private MapGenerator mg = new MapGenerator();
 
     /** The newturn. */
-    private boolean NEWTURN = true;
+    private boolean newTurn = true;
 
     /** The start turn. */
     private boolean startTurn;
@@ -92,7 +91,6 @@ public class BootCycle
      */
     public BootCycle()
     {
-	// TODO Auto-generated constructor stub
 	this.startTurn = true;
 	this.map.setMap(this.mg.generateTestMap(this.map.getMap()));
     }
@@ -103,7 +101,7 @@ public class BootCycle
      * @param args
      *            the arguments
      */
-    public static void main(String[] args)
+    public static void main(final String[] args)
     {
 	BootCycle bc = new BootCycle();
 	bc.run();
@@ -113,9 +111,9 @@ public class BootCycle
     /**
      * Run.
      */
-    public void run()
+    public final void run()
     {
-	slf4jLogger.info("LWJGL Version: " + Version.getVersion());
+	LOGGER.info("LWJGL Version: " + Version.getVersion());
 
 	try
 	{
@@ -123,8 +121,8 @@ public class BootCycle
 	    loop();
 
 	    // Free the window callbacks and destroy the window
-	    glfwFreeCallbacks(window);
-	    glfwDestroyWindow(window);
+	    glfwFreeCallbacks(display);
+	    glfwDestroyWindow(display);
 	} finally
 	{
 	    // Terminate GLFW and free the error callback
@@ -144,7 +142,9 @@ public class BootCycle
 
 	// Initialize GLFW. Most GLFW functions will not work before doing this.
 	if (!glfwInit())
+	{
 	    throw new IllegalStateException("Unable to initialize GLFW");
+	}
 
 	// Configure our window
 	glfwDefaultWindowHints(); // optional, the current window hints are
@@ -155,31 +155,34 @@ public class BootCycle
 						    // resizable
 
 	// Create the window
-	window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, NULL, NULL);
-	if (window == NULL)
+	display = glfwCreateWindow(width, height, title, NULL, NULL);
+	if (display == NULL)
+	{
 	    throw new RuntimeException("Failed to create the GLFW window");
+	}
 
 	// Setup a key callback. It will be called every time a key is pressed,
 	// repeated or released.
-	glfwSetKeyCallback(window, (window, key, scancode, action, mods) ->
+	glfwSetKeyCallback(display, (window, key, scancode, action, mods) ->
 	{
 	    if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE)
+	    {
 		glfwSetWindowShouldClose(window, true); // We will detect this
-							// in our rendering loop
+	    } // in our rendering loop
 	});
 
 	// Get the resolution of the primary monitor
 	GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	// Center our window
-	glfwSetWindowPos(window, (vidmode.width() - WIDTH) / 2, (vidmode.height() - HEIGHT) / 2);
+	glfwSetWindowPos(display, (vidmode.width() - width) / 2, (vidmode.height() - height) / 2);
 
 	// Make the OpenGL context current
-	glfwMakeContextCurrent(window);
+	glfwMakeContextCurrent(display);
 	// Enable v-sync
 	glfwSwapInterval(2);
 
 	// Make the window visible
-	glfwShowWindow(window);
+	glfwShowWindow(display);
 
     }
 
@@ -201,14 +204,14 @@ public class BootCycle
 
 	// Run the rendering loop until the user has attempted to close
 	// the window or has pressed the ESCAPE key.
-	while (!glfwWindowShouldClose(window))
+	while (!glfwWindowShouldClose(display))
 	{
-	    if (startTurn == true)
+	    if (startTurn)
 	    {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the
 								    // framebuffer
 
-		glfwSwapBuffers(window); // swap the color buffers
+		glfwSwapBuffers(display); // swap the color buffers
 
 		// Poll for window events. The key callback above will only be
 		// invoked during this call.
@@ -220,7 +223,7 @@ public class BootCycle
 		// this.map.getMap().put(new Location(2, 2), "D");
 		// this.map.addLocation(new Location(1, 2), "B");
 
-		if (NEWTURN == true)
+		if (newTurn)
 		{
 		    System.out.println("[EVENT] New Turn");
 		    System.out.println("[STAT] actionPoints: " + this.player.getActionPoints());
@@ -245,7 +248,7 @@ public class BootCycle
      *
      * @return the turn
      */
-    public Turn getTurn()
+    public final Turn getTurn()
     {
 	return turn;
     }
@@ -253,12 +256,12 @@ public class BootCycle
     /**
      * Sets the turn.
      *
-     * @param turn
+     * @param t
      *            the new turn
      */
-    public void setTurn(Turn turn)
+    public final void setTurn(final Turn t)
     {
-	this.turn = turn;
+	this.turn = t;
     }
 
     /**
@@ -266,9 +269,9 @@ public class BootCycle
      *
      * @return the newturn
      */
-    public boolean getNEWTURN()
+    public final boolean getNEWTURN()
     {
-	return NEWTURN;
+	return newTurn;
     }
 
     /**
@@ -277,9 +280,9 @@ public class BootCycle
      * @param b
      *            the new newturn
      */
-    public void setNEWTURN(boolean b)
+    public final void setNEWTURN(final boolean b)
     {
-	this.NEWTURN = b;
+	this.newTurn = b;
     }
 
     /**
@@ -287,7 +290,7 @@ public class BootCycle
      *
      * @return the player
      */
-    public Player getPlayer()
+    public final Player getPlayer()
     {
 	return player;
     }
@@ -295,12 +298,12 @@ public class BootCycle
     /**
      * Sets the player.
      *
-     * @param player
+     * @param p
      *            the new player
      */
-    public void setPlayer(Player player)
+    public final void setPlayer(final Player p)
     {
-	this.player = player;
+	this.player = p;
     }
 
     /**
@@ -308,7 +311,7 @@ public class BootCycle
      *
      * @return the npc
      */
-    public Npc getNpc()
+    public final Npc getNpc()
     {
 	return npc;
     }
@@ -316,12 +319,12 @@ public class BootCycle
     /**
      * Sets the npc.
      *
-     * @param npc
+     * @param n
      *            the new npc
      */
-    public void setNpc(Npc npc)
+    public final void setNpc(final Npc n)
     {
-	this.npc = npc;
+	this.npc = n;
     }
 
 }

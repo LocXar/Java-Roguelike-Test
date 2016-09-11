@@ -24,10 +24,9 @@ package org.locxar.core;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum Type.
- * 
+ *
  * @author LocXar
  */
 public enum Type
@@ -39,8 +38,8 @@ public enum Type
     NPC(1);
 
     /** The Constant slf4jLogger. */
-    private final static Logger slf4jLogger = LoggerFactory.getLogger(Type.class);
-    
+    private final static Logger LOGGER = LoggerFactory.getLogger(Type.class);
+
     /** The type. */
     private int type;
 
@@ -50,7 +49,7 @@ public enum Type
      * @param id
      *            the id
      */
-    Type(int id)
+    Type(final int id)
     {
 	this.type = id;
     }

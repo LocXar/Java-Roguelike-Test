@@ -48,3 +48,4 @@ Temporary Items
 
 # Directories potentially created in the project directory
 target/*
+/target/

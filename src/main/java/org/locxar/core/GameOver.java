@@ -32,58 +32,59 @@ import org.slf4j.LoggerFactory;
 public class GameOver
 {
 
-    private static final Logger slf4jLogger = LoggerFactory.getLogger(GameOver.class);
-    
+    /** The Constant slf4jLogger. */
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameOver.class);
+
     /** The player name. */
     // Player Stats
-    private String PLAYER_NAME;
-    
+    private String playerName;
+
     /** The player healthpoints. */
-    private double PLAYER_HEALTHPOINTS;
-    
+    private double playerHealthPoints;
+
     /** The player manapoints. */
-    private double PLAYER_MANAPOINTS;
-    
+    private double playerManaPoints;
+
     /** The player actionpoints. */
-    private double PLAYER_ACTIONPOINTS;
-    
+    private double playerActionPoints;
+
     /** The npc name. */
     // Npc Stats
-    private String NPC_NAME;
-    
+    private String npcName;
+
     /** The npc healthpoints. */
-    private double NPC_HEALTHPOINTS;
-    
+    private double npcHealthPoints;
+
     /** The npc manapoints. */
-    private double NPC_MANAPOINTS;
-    
+    private double npcManaPoints;
+
     /** The npc actionpoints. */
-    private double NPC_ACTIONPOINTS;
-    
+    private double npcActionPoints;
+
     /** The start turn. */
     private boolean startTurn;
-    
+
     /**
      * Instantiates a new game over.
      *
      * @param player the player
      * @param npc the npc
      */
-    public GameOver(Player player, Npc npc)
+    public GameOver(final Player player, final Npc npc)
     {
 	// TODO Auto-generated constructor stub
 	// Initialize Player Stats
-	this.PLAYER_NAME = player.getName();
-	this.PLAYER_HEALTHPOINTS = player.getHealthPoints();
-	this.PLAYER_MANAPOINTS = player.getManaPoints();
-	this.PLAYER_ACTIONPOINTS = player.getActionPoints();
-	
+	this.playerName = player.getName();
+	this.playerHealthPoints = player.getHealthPoints();
+	this.playerManaPoints = player.getManaPoints();
+	this.playerActionPoints = player.getActionPoints();
+
 	// Initialize Player Stats
-	this.NPC_NAME = npc.getName();
-	this.NPC_HEALTHPOINTS = npc.getHealthPoints();
-	this.NPC_MANAPOINTS = npc.getManaPoints();
-	this.NPC_ACTIONPOINTS = npc.getActionPoints();
-	
+	this.npcName = npc.getName();
+	this.npcHealthPoints = npc.getHealthPoints();
+	this.npcManaPoints = npc.getManaPoints();
+	this.npcActionPoints = npc.getActionPoints();
+
 	this.run();
     }
 
@@ -92,27 +93,27 @@ public class GameOver
      *
      * @return true, if successful
      */
-    public boolean run()
+    public final boolean run()
     {
-	System.out.println("Player.Name: " + this.PLAYER_NAME);
-	System.out.println("Player.HealthPoints: " + this.PLAYER_HEALTHPOINTS);
-	System.out.println("Player.ManaPoints: " + this.PLAYER_MANAPOINTS);
-	System.out.println("Player.ActionPoints: " + this.PLAYER_ACTIONPOINTS);
-	System.out.println("Npc.Name: " + this.NPC_NAME);
-	System.out.println("Npc.HealthPoints: " + this.NPC_HEALTHPOINTS);
-	System.out.println("Npc.ManaPoints: " + this.NPC_MANAPOINTS);
-	System.out.println("Npc.ActionPoints: " + this.NPC_ACTIONPOINTS);
-	
-	boolean startTurn = false;
-	return startTurn;
+	System.out.println("Player.Name: " + this.playerName);
+	System.out.println("Player.HealthPoints: " + this.playerHealthPoints);
+	System.out.println("Player.ManaPoints: " + this.playerManaPoints);
+	System.out.println("Player.ActionPoints: " + this.playerActionPoints);
+	System.out.println("Npc.Name: " + this.npcName);
+	System.out.println("Npc.HealthPoints: " + this.npcHealthPoints);
+	System.out.println("Npc.ManaPoints: " + this.npcManaPoints);
+	System.out.println("Npc.ActionPoints: " + this.npcActionPoints);
+
+	boolean sT = false;
+	return sT;
     }
-    
+
     /**
      * Checks if is start turn.
      *
      * @return true, if is start turn
      */
-    public boolean isStartTurn()
+    public final boolean isStartTurn()
     {
         return startTurn;
     }
@@ -120,10 +121,10 @@ public class GameOver
     /**
      * Sets the start turn.
      *
-     * @param startTurn the new start turn
+     * @param sT the new start turn
      */
-    public void setStartTurn(boolean startTurn)
+    public final void setStartTurn(final boolean sT)
     {
-        this.startTurn = startTurn;
+        this.startTurn = sT;
     }
 }

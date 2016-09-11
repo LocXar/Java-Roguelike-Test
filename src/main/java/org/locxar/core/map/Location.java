@@ -21,7 +21,6 @@
  */
 package org.locxar.core.map;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Location.
  *
@@ -29,65 +28,62 @@ package org.locxar.core.map;
  */
 public class Location
 {
-    
     /** The x. */
     private int x;
-    
+
     /** The y. */
     private int y;
-    
+
     /**
      * Instantiates a new location.
      *
-     * @param x the x
-     * @param y the y
+     * @param a the x
+     * @param b the y
      */
-    public Location(int x, int y)
+    public Location(final int a, final int b)
     {
 	// TODO Auto-generated constructor stub
-	this.x = x;
-	this.y = y;
+	this.x = a;
+	this.y = b;
     }
-    
+
     /**
      * Gets the x.
      *
      * @return the x
      */
-    public int getX()
+    public final int getX()
     {
         return x;
     }
-    
+
     /**
      * Sets the x.
      *
-     * @param x the new x
+     * @param a the new x
      */
-    public void setX(int x)
+    public final void setX(final int a)
     {
-        this.x = x;
+        this.x = a;
     }
-    
+
     /**
      * Gets the y.
      *
      * @return the y
      */
-    public int getY()
+    public final int getY()
     {
         return y;
     }
-    
+
     /**
      * Sets the y.
      *
-     * @param y the new y
+     * @param b the new y
      */
-    public void setY(int y)
+    public final void setY(int b)
     {
-        this.y = y;
+        this.y = b;
     }
-    
-
 }
