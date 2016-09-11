@@ -26,8 +26,8 @@ under the License.
     <copyright>&#169;2016</copyright>
     <item>
       <title>File: 13,
-             Errors: 328,
-             Warnings: 0,
+             Errors: 0,
+             Warnings: 328,
              Infos: 0
       </title>
             <link>https://locxar.github.io/Java-Roguelike-Test/checkstyle.html</link>
@@ -52,10 +52,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  25
                 </td>
                 <td>
-                  25
+                  0
                 </td>
               </tr>
                           <tr>
@@ -66,10 +66,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -80,10 +80,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -94,10 +94,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  65
                 </td>
                 <td>
-                  65
+                  0
                 </td>
               </tr>
                           <tr>
@@ -108,10 +108,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  51
                 </td>
                 <td>
-                  51
+                  0
                 </td>
               </tr>
                           <tr>
@@ -122,10 +122,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  12
                 </td>
                 <td>
-                  12
+                  0
                 </td>
               </tr>
                           <tr>
@@ -136,10 +136,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -150,10 +150,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  39
                 </td>
                 <td>
-                  39
+                  0
                 </td>
               </tr>
                           <tr>
@@ -164,10 +164,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  39
                 </td>
                 <td>
-                  39
+                  0
                 </td>
               </tr>
                           <tr>
@@ -178,10 +178,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  4
                 </td>
                 <td>
-                  4
+                  0
                 </td>
               </tr>
                           <tr>
@@ -192,10 +192,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  41
                 </td>
                 <td>
-                  41
+                  0
                 </td>
               </tr>
                           <tr>
@@ -206,10 +206,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  28
                 </td>
                 <td>
-                  28
+                  0
                 </td>
               </tr>
                           <tr>
@@ -220,10 +220,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  21
                 </td>
                 <td>
-                  21
+                  0
                 </td>
               </tr>
                       </tbody>
