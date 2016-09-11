@@ -1,5 +1,23 @@
-/**
- * 
+/*
+ * Copyright (c) 2016 LocXar
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package org.locxar.exec;
 
@@ -18,8 +36,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 import org.locxar.core.Npc;
 import org.locxar.core.Player;
 import org.locxar.core.Turn;
-import org.locxar.core.Type;
-import org.locxar.core.map.Location;
 import org.locxar.core.map.MapGenerator;
 import org.locxar.core.map.Mapper;
 
@@ -39,19 +55,37 @@ public class BootCycle
     // The window handle
     private long window;
 
+    /** The title. */
+    private final String TITLE = "Test Title...";
+
+    /** The width. */
+    private final int WIDTH = 1024;
+
+    /** The height. */
+    private final int HEIGHT = 768;
+
     /** The turn. */
     private Turn turn = new Turn();
 
+    /** The player. */
     // Create new Player object
     private Player player = new Player();
+
+    /** The npc. */
     // Create new Npc object
     private Npc npc = new Npc();
-    
+
+    /** The map. */
     Mapper map = new Mapper();
-    
+
+    /** The mg. */
     MapGenerator mg = new MapGenerator();
 
-    private int NEWTURN = GL_TRUE;
+    /** The newturn. */
+    private boolean NEWTURN = true;
+
+    /** The start turn. */
+    private boolean startTurn;
 
     /**
      * Instantiates a new boot cycle.
@@ -59,7 +93,8 @@ public class BootCycle
     public BootCycle()
     {
 	// TODO Auto-generated constructor stub
-	this.map.setMap(this.mg.generateTestMap(map.getMap()));
+	this.startTurn = true;
+	this.map.setMap(this.mg.generateTestMap(this.map.getMap()));
     }
 
     /**
@@ -81,7 +116,7 @@ public class BootCycle
     public void run()
     {
 	slf4jLogger.info("LWJGL Version: " + Version.getVersion());
-	
+
 	try
 	{
 	    init();
@@ -118,13 +153,6 @@ public class BootCycle
 						  // after creation
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // the window wont be
 						    // resizable
-
-	int WIDTH = 1024;
-	int HEIGHT = 768;
-	String TITLE = null;
-
-	// Debug Input
-	TITLE = "Test Title...";
 
 	// Create the window
 	window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, NULL, NULL);
@@ -175,75 +203,125 @@ public class BootCycle
 	// the window or has pressed the ESCAPE key.
 	while (!glfwWindowShouldClose(window))
 	{
-	    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the
-								// framebuffer
-
-	    glfwSwapBuffers(window); // swap the color buffers
-
-	    // Poll for window events. The key callback above will only be
-	    // invoked during this call.
-	    glfwPollEvents();
-	    
-	    // map.getMap().put(new Location(1, 2), "A");
-	    // this.map.getMap().put(new Location(2, 1), "B");
-	    // this.map.getMap().put(new Location(1, 1), "C");
-	    // this.map.getMap().put(new Location(2, 2), "D");
-	    // this.map.addLocation(new Location(1, 2), "B");
-	    
-	    if (NEWTURN == GL_TRUE)
+	    if (startTurn == true)
 	    {
-		System.out.println("[EVENT] New Turn");
-		System.out.println("[STAT] actionPoints: " + this.player.getActionPoints());
-		
-		// Deactivate start of a new Turn until the turn is over.
-		this.setNEWTURN(GL_FALSE);
-		this.turn.turnListener(this.turn, this.getPlayer(), this.getNpc());
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the
+								    // framebuffer
 
-		// Allow a new Turn.
-		this.setNEWTURN(GL_TRUE);
+		glfwSwapBuffers(window); // swap the color buffers
+
+		// Poll for window events. The key callback above will only be
+		// invoked during this call.
+		glfwPollEvents();
+
+		// map.getMap().put(new Location(1, 2), "A");
+		// this.map.getMap().put(new Location(2, 1), "B");
+		// this.map.getMap().put(new Location(1, 1), "C");
+		// this.map.getMap().put(new Location(2, 2), "D");
+		// this.map.addLocation(new Location(1, 2), "B");
+
+		if (NEWTURN == true)
+		{
+		    System.out.println("[EVENT] New Turn");
+		    System.out.println("[STAT] actionPoints: " + this.player.getActionPoints());
+
+		    // Deactivate start of a new Turn until the turn is over.
+		    this.setNEWTURN(false);
+		    this.turn.turnListener(this.turn, this.getPlayer(), this.getNpc());
+		    this.startTurn = this.turn.isStartTurn();
+
+		    // Allow a new Turn.
+		    this.setNEWTURN(true);
+		}
+	    } else
+	    {
+		break;
 	    }
 	}
     }
 
+    /**
+     * Gets the turn.
+     *
+     * @return the turn
+     */
     public Turn getTurn()
     {
 	return turn;
     }
 
+    /**
+     * Sets the turn.
+     *
+     * @param turn
+     *            the new turn
+     */
     public void setTurn(Turn turn)
     {
 	this.turn = turn;
     }
 
-    public int getNEWTURN()
+    /**
+     * Gets the newturn.
+     *
+     * @return the newturn
+     */
+    public boolean getNEWTURN()
     {
 	return NEWTURN;
     }
 
-    public void setNEWTURN(int nEWTURN)
+    /**
+     * Sets the newturn.
+     *
+     * @param b
+     *            the new newturn
+     */
+    public void setNEWTURN(boolean b)
     {
-	this.NEWTURN = nEWTURN;
+	this.NEWTURN = b;
     }
 
+    /**
+     * Gets the player.
+     *
+     * @return the player
+     */
     public Player getPlayer()
     {
-        return player;
+	return player;
     }
 
+    /**
+     * Sets the player.
+     *
+     * @param player
+     *            the new player
+     */
     public void setPlayer(Player player)
     {
-        this.player = player;
+	this.player = player;
     }
 
+    /**
+     * Gets the npc.
+     *
+     * @return the npc
+     */
     public Npc getNpc()
     {
-        return npc;
+	return npc;
     }
 
+    /**
+     * Sets the npc.
+     *
+     * @param npc
+     *            the new npc
+     */
     public void setNpc(Npc npc)
     {
-        this.npc = npc;
+	this.npc = npc;
     }
-    
-    
+
 }
