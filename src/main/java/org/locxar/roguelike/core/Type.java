@@ -19,71 +19,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.core.map;
+package org.locxar.roguelike.core;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * The Class Location.
+ * The Enum Type.
  *
  * @author LocXar
  */
-public class Location
+public enum Type
 {
-    /** The x. */
-    private int x;
 
-    /** The y. */
-    private int y;
+    /** The player. */
+    PLAYER(0),
+    /** The npc. */
+    NPC(1);
+
+    /** The Constant slf4jLogger. */
+    private static final Logger LOGGER = LoggerFactory.getLogger(Type.class);
+
+    /** The type. */
+    private int type;
 
     /**
-     * Instantiates a new location.
+     * Instantiates a new type.
      *
-     * @param a the x
-     * @param b the y
+     * @param id
+     *            the id
      */
-    public Location(final int a, final int b)
+    Type(final int id)
     {
-	// TODO Auto-generated constructor stub
-	this.x = a;
-	this.y = b;
+        this.type = id;
     }
 
     /**
-     * Gets the x.
+     * Gets the type id.
      *
-     * @return the x
+     * @return the type id
      */
-    public final int getX()
+    public int getTypeId()
     {
-        return x;
-    }
-
-    /**
-     * Sets the x.
-     *
-     * @param a the new x
-     */
-    public final void setX(final int a)
-    {
-        this.x = a;
-    }
-
-    /**
-     * Gets the y.
-     *
-     * @return the y
-     */
-    public final int getY()
-    {
-        return y;
-    }
-
-    /**
-     * Sets the y.
-     *
-     * @param b the new y
-     */
-    public final void setY(int b)
-    {
-        this.y = b;
+        LOGGER.info("getTypeId started");
+        return this.type;
     }
 }

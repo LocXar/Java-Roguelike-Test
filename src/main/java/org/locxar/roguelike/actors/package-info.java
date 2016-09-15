@@ -19,21 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.core;
-
 /**
- * The Class Actor.
- *
  * @author LocXar
+ *
  */
-public abstract class Actor
-{
-    /**
-     * Instantiates a new actor.
-     */
-    public Actor()
-    {
-	// TODO Auto-generated constructor stub
-    }
-
-}
+package org.locxar.roguelike.actors;

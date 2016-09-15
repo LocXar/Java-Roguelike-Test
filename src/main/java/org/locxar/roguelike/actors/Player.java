@@ -19,8 +19,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.locxar.roguelike.actors;
+
 /**
- * @author LocXar
+ * The Class Player.
  *
+ * @author LocXar
  */
-package org.locxar.exec;
+public class Player extends Actor
+{
+    /**
+     * Instantiates a new player.
+     */
+    public Player()
+    {
+	// TODO Auto-generated constructor stub
+	this.setName("LocXar");
+	this.setHealthPoints(1000);
+	this.setManaPoints(1000);
+	this.setActionPoints(10);
+	logger.info("Player Object created.");
+    }
+}

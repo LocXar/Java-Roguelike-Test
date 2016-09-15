@@ -19,9 +19,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.core.map;
+package org.locxar.roguelike.util.map;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
+
+import org.locxar.roguelike.map.Location;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Class MapGenerator.
@@ -30,37 +39,45 @@ import java.util.Map;
  */
 public class MapGenerator
 {
+    
+    /** The Constant slf4jLogger. */
+    private static final Logger LOGGER = LoggerFactory.getLogger(MapGenerator.class);
 
     /**
      * Instantiates a new map generator.
      */
     public MapGenerator()
     {
-	// TODO Auto-generated constructor stub
-
+        // TODO Auto-generated constructor stub
+        LOGGER.info("MapGenerator Object created");
     }
 
     /**
      * Generate test map.
      *
-     * @param map the map
+     * @param map
+     *            the map
      * @return the map
      */
     public final Map<Location, Character> generateTestMap(final Map<Location, Character> map)
     {
-	for (int i = 0; i <= 256; i++) // Zeilen
-	{
-	    for (int j = 0; j <= 256; j++) // Spalten
-	    {
-		if (i == 0 || i == 256 || j == 0 || j == 256)
-		{
-		    map.put(new Location(i, j), '#');
-		} else
-		{
-		    map.put(new Location(i, j), '.');
-		}
-	    }
-	}
-	return map;
+        int counter = 0;
+        for (int i = 0; i <= 256; i++) // Zeilen
+        {
+            for (int j = 0; j <= 256; j++) // Spalten
+            {
+                counter++;
+                Location loc = new Location(i, j);
+                if (i == 0 || i == 256 || j == 0 || j == 256)
+                {
+                    map.put(loc, new Character('+'));
+                } else
+                {
+                    map.put(loc, new Character('-'));
+                }
+            }
+        }
+        System.out.println("Durchläufe: " + counter);
+        return map;
     }
 }

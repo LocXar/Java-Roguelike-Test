@@ -6,7 +6,7 @@
 -->
 <!--
     Checkstyle-Configuration: Sun Checks updated
-    Description: 
+    Description:
 Checkstyle configuration that checks the sun coding conventions.
 -->
 <module name="Checker">

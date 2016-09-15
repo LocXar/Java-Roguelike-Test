@@ -19,84 +19,71 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.core.map;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package org.locxar.roguelike.map;
 
 /**
- * The Class Mapper.
+ * The Class Location.
  *
  * @author LocXar
  */
-public class Mapper
+public class Location
 {
+    /** The x. */
+    private int x;
 
-    /** The Constant slf4jLogger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(Mapper.class);
-
-    /** The map. */
-    private Map<Location, Character> map;
+    /** The y. */
+    private int y;
 
     /**
-     * Instantiates a new mapper.
+     * Instantiates a new location.
+     *
+     * @param a the x
+     * @param b the y
      */
-    public Mapper()
+    public Location(final int a, final int b)
     {
-	this.map = new HashMap<Location, Character>();
+	// TODO Auto-generated constructor stub
+	this.x = a;
+	this.y = b;
     }
 
     /**
-     * Instantiates a new mapper.
+     * Gets the x.
      *
-     * @param m
-     *            the map
+     * @return the x
      */
-    public Mapper(final Map<Location, Character> m)
+    public final int getX()
     {
-	this.map = m;
+        return x;
     }
 
     /**
-     * Gets the map.
+     * Sets the x.
      *
-     * @return the map
+     * @param a the new x
      */
-    public final Map<Location, Character> getMap()
+    public final void setX(final int a)
     {
-	return this.map;
+        this.x = a;
     }
 
     /**
-     * Sets the map.
+     * Gets the y.
      *
-     * @param m
-     *            the map
+     * @return the y
      */
-    public final void setMap(final Map<Location, Character> m)
+    public final int getY()
     {
-	this.map = m;
+        return y;
     }
 
     /**
-     * Adds the location.
+     * Sets the y.
      *
-     * @param loc
-     *            the loc
-     * @param s
-     *            the s
+     * @param b the new y
      */
-    public final void addLocation(final Location loc, final Character s)
+    public final void setY(final int b)
     {
-	if (map.containsKey(loc))
-	{
-	    this.map.put(loc, s);
-	} else
-	{
-	    LOGGER.info("Mapper.addLocation(): Location found!");
-	}
+        this.y = b;
     }
 }

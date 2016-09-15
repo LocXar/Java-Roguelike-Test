@@ -19,48 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.core;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
- * The Enum Type.
+ * @author ph729
  *
- * @author LocXar
  */
-public enum Type
-{
-
-    /** The player. */
-    PLAYER(0),
-    /** The npc. */
-    NPC(1);
-
-    /** The Constant slf4jLogger. */
-    private final static Logger LOGGER = LoggerFactory.getLogger(Type.class);
-
-    /** The type. */
-    private int type;
-
-    /**
-     * Instantiates a new type.
-     *
-     * @param id
-     *            the id
-     */
-    Type(final int id)
-    {
-	this.type = id;
-    }
-
-    /**
-     * Gets the type id.
-     *
-     * @return the type id
-     */
-    public int getTypeId()
-    {
-	return this.type;
-    }
-}
+package org.locxar.roguelike.turn;

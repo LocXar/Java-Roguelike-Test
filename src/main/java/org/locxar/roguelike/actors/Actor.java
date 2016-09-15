@@ -19,20 +19,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.core;
+package org.locxar.roguelike.actors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The Class Player.
+ * The Class Actor.
  *
  * @author LocXar
  */
-public class Player extends Actor
+public abstract class Actor
 {
     /** The Constant slf4jLogger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(Player.class);
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     /** The health points. */
     private double healthPoints;
@@ -47,16 +47,19 @@ public class Player extends Actor
     private String name;
 
     /**
-     * Instantiates a new player.
+     * Instantiates a new actor.
      */
-    public Player()
+    public Actor()
     {
-	// TODO Auto-generated constructor stub
-	this.setName("LocXar");
-	this.setHealthPoints(1000);
-	this.setManaPoints(1000);
-	this.setActionPoints(10);
-	LOGGER.info("Player Object created.");
+        // TODO Auto-generated constructor stub
+    }
+
+    /**
+     * @return the logger
+     */
+    public final Logger getLogger()
+    {
+        return logger;
     }
 
     /**
@@ -66,7 +69,7 @@ public class Player extends Actor
      */
     public final double getHealthPoints()
     {
-	return healthPoints;
+    return healthPoints;
     }
 
     /**
@@ -76,7 +79,7 @@ public class Player extends Actor
      */
     public final void setHealthPoints(final double hP)
     {
-	this.healthPoints = hP;
+    this.healthPoints = hP;
     }
 
     /**
@@ -86,7 +89,7 @@ public class Player extends Actor
      */
     public final double getManaPoints()
     {
-	return manaPoints;
+    return manaPoints;
     }
 
     /**
@@ -96,7 +99,7 @@ public class Player extends Actor
      */
     public final void setManaPoints(final double mP)
     {
-	this.manaPoints = mP;
+    this.manaPoints = mP;
     }
 
     /**
@@ -106,7 +109,7 @@ public class Player extends Actor
      */
     public final double getActionPoints()
     {
-	return actionPoints;
+    return actionPoints;
     }
 
     /**
@@ -116,7 +119,7 @@ public class Player extends Actor
      */
     public final void setActionPoints(final double aP)
     {
-	this.actionPoints = aP;
+    this.actionPoints = aP;
     }
 
     /**
@@ -126,7 +129,7 @@ public class Player extends Actor
      */
     public final String getName()
     {
-	return name;
+    return name;
     }
 
     /**
@@ -136,6 +139,6 @@ public class Player extends Actor
      */
     public final void setName(final String n)
     {
-	this.name = n;
+    this.name = n;
     }
 }

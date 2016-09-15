@@ -19,8 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.core;
+package org.locxar.roguelike.core;
 
+import org.locxar.roguelike.actors.Npc;
+import org.locxar.roguelike.actors.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,25 +69,27 @@ public class GameOver
     /**
      * Instantiates a new game over.
      *
-     * @param player the player
-     * @param npc the npc
+     * @param player
+     *            the player
+     * @param npc
+     *            the npc
      */
     public GameOver(final Player player, final Npc npc)
     {
-	// TODO Auto-generated constructor stub
-	// Initialize Player Stats
-	this.playerName = player.getName();
-	this.playerHealthPoints = player.getHealthPoints();
-	this.playerManaPoints = player.getManaPoints();
-	this.playerActionPoints = player.getActionPoints();
+        // TODO Auto-generated constructor stub
+        // Initialize Player Stats
+        this.playerName = player.getName();
+        this.playerHealthPoints = player.getHealthPoints();
+        this.playerManaPoints = player.getManaPoints();
+        this.playerActionPoints = player.getActionPoints();
 
-	// Initialize Player Stats
-	this.npcName = npc.getName();
-	this.npcHealthPoints = npc.getHealthPoints();
-	this.npcManaPoints = npc.getManaPoints();
-	this.npcActionPoints = npc.getActionPoints();
+        // Initialize Player Stats
+        this.npcName = npc.getName();
+        this.npcHealthPoints = npc.getHealthPoints();
+        this.npcManaPoints = npc.getManaPoints();
+        this.npcActionPoints = npc.getActionPoints();
 
-	this.run();
+        this.run();
     }
 
     /**
@@ -95,17 +99,18 @@ public class GameOver
      */
     public final boolean run()
     {
-	System.out.println("Player.Name: " + this.playerName);
-	System.out.println("Player.HealthPoints: " + this.playerHealthPoints);
-	System.out.println("Player.ManaPoints: " + this.playerManaPoints);
-	System.out.println("Player.ActionPoints: " + this.playerActionPoints);
-	System.out.println("Npc.Name: " + this.npcName);
-	System.out.println("Npc.HealthPoints: " + this.npcHealthPoints);
-	System.out.println("Npc.ManaPoints: " + this.npcManaPoints);
-	System.out.println("Npc.ActionPoints: " + this.npcActionPoints);
+        LOGGER.info("Start Gameover.run()");
+        System.out.println("Player.Name: " + this.playerName);
+        System.out.println("Player.HealthPoints: " + this.playerHealthPoints);
+        System.out.println("Player.ManaPoints: " + this.playerManaPoints);
+        System.out.println("Player.ActionPoints: " + this.playerActionPoints);
+        System.out.println("Npc.Name: " + this.npcName);
+        System.out.println("Npc.HealthPoints: " + this.npcHealthPoints);
+        System.out.println("Npc.ManaPoints: " + this.npcManaPoints);
+        System.out.println("Npc.ActionPoints: " + this.npcActionPoints);
 
-	boolean sT = false;
-	return sT;
+        boolean sT = false;
+        return sT;
     }
 
     /**
@@ -121,7 +126,8 @@ public class GameOver
     /**
      * Sets the start turn.
      *
-     * @param sT the new start turn
+     * @param sT
+     *            the new start turn
      */
     public final void setStartTurn(final boolean sT)
     {
