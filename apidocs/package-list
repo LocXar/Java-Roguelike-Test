@@ -1,3 +1,7 @@
-org.locxar.core
-org.locxar.core.map
-org.locxar.exec
+org.locxar.roguelike
+org.locxar.roguelike.actors
+org.locxar.roguelike.core
+org.locxar.roguelike.gui
+org.locxar.roguelike.map
+org.locxar.roguelike.turn
+org.locxar.roguelike.util.map

@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 13,
+      <title>File: 19,
              Errors: 0,
-             Warnings: 19,
+             Warnings: 23,
              Infos: 0
       </title>
             <link>https://locxar.github.io/Java-Roguelike-Test/checkstyle.html</link>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.map.Mapper.java">org/locxar/core/map/Mapper.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.core.Type.java">org/locxar/roguelike/core/Type.java</a>
                 </td>
                 <td>
                   0
@@ -60,35 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.package-info.java">org/locxar/core/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.exec.package-info.java">org/locxar/exec/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.exec.BootCycle.java">org/locxar/exec/BootCycle.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.actors.Npc.java">org/locxar/roguelike/actors/Npc.java</a>
                 </td>
                 <td>
                   0
@@ -102,21 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.Turn.java">org/locxar/core/Turn.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.Type.java">org/locxar/core/Type.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.map.Mapper.java">org/locxar/roguelike/map/Mapper.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +88,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.map.package-info.java">org/locxar/core/map/package-info.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.turn.Turn.java">org/locxar/roguelike/turn/Turn.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.actors.Actor.java">org/locxar/roguelike/actors/Actor.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.GameOver.java">org/locxar/core/GameOver.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.gui.package-info.java">org/locxar/roguelike/gui/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -158,21 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.Player.java">org/locxar/core/Player.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.Actor.java">org/locxar/core/Actor.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.actors.package-info.java">org/locxar/roguelike/actors/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -186,27 +144,13 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.Npc.java">org/locxar/core/Npc.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.core.GameOver.java">org/locxar/roguelike/core/GameOver.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  3
-                </td>
-                <td>
                   0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.map.Location.java">org/locxar/core/map/Location.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
                 </td>
                 <td>
                   0
@@ -214,13 +158,153 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.core.map.MapGenerator.java">org/locxar/core/map/MapGenerator.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.map.package-info.java">org/locxar/roguelike/map/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.CycleController.java">org/locxar/roguelike/CycleController.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
                   4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.util.map.package-info.java">org/locxar/roguelike/util/map/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.turn.package-info.java">org/locxar/roguelike/turn/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.map.AbstractMapper.java">org/locxar/roguelike/map/AbstractMapper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.package-info.java">org/locxar/roguelike/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.util.map.MapGenerator.java">org/locxar/roguelike/util/map/MapGenerator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.actors.Player.java">org/locxar/roguelike/actors/Player.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.map.Location.java">org/locxar/roguelike/map/Location.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.core.package-info.java">org/locxar/roguelike/core/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.gui.MainFrame.java">org/locxar/roguelike/gui/MainFrame.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
