@@ -46,7 +46,7 @@ public class Mapper
      */
     public Mapper()
     {
-        this.map = new HashMap<Location, Character>();
+	this.map = new HashMap<Location, Character>();
     }
 
     /**
@@ -57,7 +57,7 @@ public class Mapper
      */
     public Mapper(final Map<Location, Character> m)
     {
-        this.map = m;
+	this.map = m;
     }
 
     /**
@@ -67,7 +67,7 @@ public class Mapper
      */
     public final Map<Location, Character> getMap()
     {
-        return this.map;
+	return this.map;
     }
 
     /**
@@ -78,7 +78,7 @@ public class Mapper
      */
     public final void setMap(final Map<Location, Character> m)
     {
-        this.map = m;
+	this.map = m;
     }
 
     /**
@@ -93,37 +93,45 @@ public class Mapper
      * @return the map
      */
     public final Map<Location, Character> addLocation(final Map<Location, Character> m, final Location loc,
-            final Character s)
+	    final Character s)
     {
-        if (map.containsKey(loc))
-        {
-            LOGGER.info("Mapper.addLocation(): Location found!");
-        } else
-        {
+	if (loc.getX() >= 0 && loc.getX() < 256 && loc.getY() >= 0 && loc.getY() < 256)
+	{
+	    if (map.containsKey(loc))
+	    {
+		LOGGER.error("Mapper.addLocation(): Location found!");
+		throw new IllegalArgumentException("location must not be null");
+	    } else
+	    {
+		m.put(loc, s);
+	    }
+	}
+	return m;
 
-            m.put(loc, s);
-        }
-        return m;
     }
 
     /**
      * Gets the location.
      *
-     * @param m the m
-     * @param loc            the loc
+     * @param m
+     *            the m
+     * @param loc
+     *            the loc
      * @return the location
      */
     public final Character getLocation(final Map<Location, Character> m, final Location loc)
     {
-        Character c = null;
-        if (m.containsKey(loc))
-        {
-            c = m.get(loc);
-        } else
-        {
-            LOGGER.info("Mapper.getLocation(): Location not found!");
-        }
+	Character c = null;
+	if (m.containsKey(loc))
+	{
+	    c = m.get(loc);
+	} else
+	{
+	    NullPointerException e = new NullPointerException("location must not be null");
+	    LOGGER.error("Mapper.getLocation(): Location not found!", e);
+	    throw e;
+	}
 
-        return c;
+	return c;
     }
 }

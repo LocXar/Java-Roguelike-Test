@@ -25,7 +25,7 @@ $RECYCLE.BIN/
 # =========================
 
 .DS_Store
-.AppleDouble
+.Applelong
 .LSOverride
 
 # Thumbnails
@@ -47,5 +47,7 @@ Temporary Items
 .apdisk
 
 # Directories potentially created in the project directory
+.classpath
+.project
 target/*
 /target/

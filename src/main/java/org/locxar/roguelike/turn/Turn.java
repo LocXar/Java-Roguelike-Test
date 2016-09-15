@@ -49,7 +49,6 @@ public class Turn
      */
     public Turn()
     {
-
 	// TODO Auto-generated constructor stub
 	this.setTYPE(Type.PLAYER);
     }
@@ -114,7 +113,8 @@ public class Turn
 	    break;
 
 	default:
-	    new IllegalStateException("Turn Type unknown.");
+	    LOGGER.error("Turn Type unknown.");
+	    throw new IllegalStateException("Turn Type unknown.");
 	}
     }
 
@@ -130,18 +130,11 @@ public class Turn
     {
 	// TODO Auto-generated method stub
 	LOGGER.info("This is the PlayerTurn!");
-	while (player.getActionPoints() > 0.0)
+	while (player.getActionPoints() > 0)
 	{
 	    System.out.println("Actionpoints over 10: " + player.getActionPoints());
 	    player.setActionPoints(player.getActionPoints() - 1);
 	}
-
-	if (player.getActionPoints() == 0)
-	{
-	    GameOver go = new GameOver(player, npc);
-	    this.setStartTurn(go.isStartTurn());
-	}
-
 	this.setTYPE(Type.NPC);
     }
 

@@ -93,53 +93,54 @@ public class CycleController
      */
     public CycleController()
     {
-        this.startTurn = true;
+	this.startTurn = true;
     }
 
     /**
      * Write 2 file.
      *
-     * @param m the map
+     * @param m
+     *            the map
      */
     private static void write2File(final Map<Location, Character> m)
     {
-        String fileLocation = "target/debug/map";
-        String fileName = "/map.save";
-        Path pathToFile = Paths.get(fileLocation);
+	String fileLocation = "target/debug/map";
+	String fileName = "/map.save";
+	Path pathToFile = Paths.get(fileLocation);
 
-        FileOutputStream outFileStream = null;
-        pathToFile.toFile().mkdirs();
-        try
-        {
-            outFileStream = new FileOutputStream(pathToFile.toString() + fileName);
+	FileOutputStream outFileStream = null;
+	pathToFile.toFile().mkdirs();
+	try
+	{
+	    outFileStream = new FileOutputStream(pathToFile.toString() + fileName);
 
-        } catch (FileNotFoundException e)
-        { // EXCEPTION Auto-generated catch block
-            LOGGER.error("Can't create outFileStream:\n", e);
-            e.printStackTrace();
-        }
+	} catch (FileNotFoundException e)
+	{ // EXCEPTION Auto-generated catch block
+	    LOGGER.error("Can't create outFileStream:\n", e);
+	    e.printStackTrace();
+	}
 
-        try
-        {
-            byte c;
-            for (int i = 0; i < 256; i++) // Zeilen
-            {
-                for (int j = 0; j < 256; j++) // Spalten
-                {
-                    LOGGER.info("I: " + i + "\n" + "J: " + j);
-                    LOGGER.info("HashMap value: " + m.get(new Location(i, j)).charValue());
-                    c = (byte) m.get(new Location(i, j)).charValue();
-                    System.out.println(c);
-                    outFileStream.write(c);
-                }
-                outFileStream.write('\n');
-            }
-        } catch (IOException e)
-        {
-            // EXCEPTION Auto-generated catch block
-            LOGGER.error("Can't write outFileStream:\n", e);
-            e.printStackTrace();
-        }
+	try
+	{
+	    byte c;
+	    for (int i = 0; i < 256; i++) // Zeilen
+	    {
+		for (int j = 0; j < 256; j++) // Spalten
+		{
+		    LOGGER.info("I: " + i + "\n" + "J: " + j);
+		    LOGGER.info("HashMap value: " + m.get(new Location(i, j)).charValue());
+		    c = (byte) m.get(new Location(i, j)).charValue();
+		    System.out.println(c);
+		    outFileStream.write(c);
+		}
+		outFileStream.write('\n');
+	    }
+	} catch (IOException e)
+	{
+	    // EXCEPTION Auto-generated catch block
+	    LOGGER.error("Can't write outFileStream:\n", e);
+	    e.printStackTrace();
+	}
     }
 
     /**
@@ -150,38 +151,37 @@ public class CycleController
      */
     public static void main(final String[] args)
     {
-        // BootCycle bc = new BootCycle();
-        // bc.run();
-        CycleController cc = new CycleController();
-        cc.run();
+	CycleController cc = new CycleController();
+	cc.coreGameLoop();
 
-        SwingUtilities.invokeLater(new Runnable()
-        {
+	SwingUtilities.invokeLater(new Runnable()
+	{
 
-            @Override
-            public void run()
-            {
-                MainFrame mf = new MainFrame();
-                mf.createAndShowGUI();
-            }
-        });
+	    @Override
+	    public void run()
+	    {
+		MainFrame mf = new MainFrame();
+		mf.createAndShowGUI();
+	    }
+	});
     }
 
     /**
      * Run.
      */
-    public final void run()
+    private void coreGameLoop()
     {
 
-        try
-        {
-            init();
-            loop();
+	try
+	{
+	    init();
+	    loop();
+	    gameOver();
 
-        } finally
-        {
-            System.exit(1);
-        }
+	} finally
+	{
+	    System.exit(1);
+	}
     }
 
     /**
@@ -189,18 +189,17 @@ public class CycleController
      */
     private void init()
     {
-        this.map.setMap(this.mg.generateTestMap(this.map.getMap()));
+	this.map.setMap(this.mg.generateTestMap(this.map.getMap()));
 
-        int i = 0;
-        for (Character c: this.map.getMap().values())
-        {
-            i++;
-            System.out.println(i + ": " + c);
-        }
+	int i = 0;
+	for (Character c : this.map.getMap().values())
+	{
+	    i++;
+	    System.out.println(i + ": " + c);
+	}
 
-        System.out.println(this.map.getLocation(this.map.getMap(), new Location(1, 1)).charValue());
-        write2File(this.map.getMap());
-        // write2File(this.map.getMap());
+	//System.out.println(this.map.getLocation(this.map.getMap(), this.map.getMap().get(key)).charValue());
+	//write2File(this.map.getMap());
 
     }
 
@@ -209,19 +208,42 @@ public class CycleController
      */
     private void loop()
     {
-        if (newTurn)
-        {
-            System.out.println("[EVENT] New Turn");
-            System.out.println("[STAT] actionPoints: " + this.player.getActionPoints());
+	while (!isGameOver())
+	{
+	    System.out.println("[EVENT] New Turn");
+	    System.out.println("[STAT] actionPoints: " + this.player.getActionPoints());
 
-            // Deactivate start of a new Turn until the turn is over.
-            this.setNewTurn(false);
-            this.turn.turnListener(this.turn, this.getPlayer(), this.getNpc());
-            this.startTurn = this.turn.isStartTurn();
+	    // Deactivate start of a new Turn until the turn is over.
+	    this.setNewTurn(false);
+	    this.turn.turnListener(this.turn, this.getPlayer(), this.getNpc());
+	    this.startTurn = this.turn.isStartTurn();
 
-            // Allow a new Turn.
-            this.setNewTurn(true);
-        }
+	    // Allow a new Turn.
+	    this.setNewTurn(true);
+	}
+    }
+
+    /**
+     * Checks if is game over.
+     *
+     * @return true, if is game over
+     */
+    private boolean isGameOver()
+    {
+	// TODO Auto-generated method stub
+	if (this.getPlayer().getHealthPoints() <= 0)
+	{
+	    return true;
+	}
+	return false;
+    }
+
+    /**
+     * Game over.
+     */
+    private void gameOver()
+    {
+	// TODO Auto-generated method stub
     }
 
     /**
@@ -231,7 +253,7 @@ public class CycleController
      */
     public final Turn getTurn()
     {
-        return turn;
+	return turn;
     }
 
     /**
@@ -242,7 +264,7 @@ public class CycleController
      */
     public final void setTurn(final Turn t)
     {
-        this.turn = t;
+	this.turn = t;
     }
 
     /**
@@ -252,7 +274,7 @@ public class CycleController
      */
     public final boolean getNewTurn()
     {
-        return newTurn;
+	return newTurn;
     }
 
     /**
@@ -263,7 +285,7 @@ public class CycleController
      */
     public final void setNewTurn(final boolean b)
     {
-        this.newTurn = b;
+	this.newTurn = b;
     }
 
     /**
@@ -273,7 +295,7 @@ public class CycleController
      */
     public final Player getPlayer()
     {
-        return player;
+	return player;
     }
 
     /**
@@ -284,7 +306,7 @@ public class CycleController
      */
     public final void setPlayer(final Player p)
     {
-        this.player = p;
+	this.player = p;
     }
 
     /**
@@ -294,7 +316,7 @@ public class CycleController
      */
     public final Npc getNpc()
     {
-        return npc;
+	return npc;
     }
 
     /**
@@ -305,6 +327,6 @@ public class CycleController
      */
     public final void setNpc(final Npc n)
     {
-        this.npc = n;
+	this.npc = n;
     }
 }

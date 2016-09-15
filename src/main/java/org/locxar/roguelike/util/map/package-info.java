@@ -19,51 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.roguelike.map;
-
 /**
- * The Class Location.
- *
  * @author LocXar
+ *
  */
-public class Location
-{
-    /** The x. */
-    private final int x;
-
-    /** The y. */
-    private final int y;
-
-    /**
-     * Instantiates a new location.
-     *
-     * @param a the x
-     * @param b the y
-     */
-    public Location(final int a, final int b)
-    {
-	// TODO Auto-generated constructor stub
-	this.x = a;
-	this.y = b;
-    }
-
-    /**
-     * Gets the x.
-     *
-     * @return the x
-     */
-    public final int getX()
-    {
-        return x;
-    }
-
-    /**
-     * Gets the y.
-     *
-     * @return the y
-     */
-    public final int getY()
-    {
-        return y;
-    }
-}
+package org.locxar.roguelike.util.map;

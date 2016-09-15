@@ -42,26 +42,26 @@ public class GameOver
     private String playerName;
 
     /** The player healthpoints. */
-    private double playerHealthPoints;
+    private long playerHealthPoints;
 
     /** The player manapoints. */
-    private double playerManaPoints;
+    private long playerManaPoints;
 
     /** The player actionpoints. */
-    private double playerActionPoints;
+    private long playerActionPoints;
 
     /** The npc name. */
     // Npc Stats
     private String npcName;
 
     /** The npc healthpoints. */
-    private double npcHealthPoints;
+    private long npcHealthPoints;
 
     /** The npc manapoints. */
-    private double npcManaPoints;
+    private long npcManaPoints;
 
     /** The npc actionpoints. */
-    private double npcActionPoints;
+    private long npcActionPoints;
 
     /** The start turn. */
     private boolean startTurn;
@@ -83,7 +83,7 @@ public class GameOver
         this.playerManaPoints = player.getManaPoints();
         this.playerActionPoints = player.getActionPoints();
 
-        // Initialize Player Stats
+        // Initialize Npc Stats
         this.npcName = npc.getName();
         this.npcHealthPoints = npc.getHealthPoints();
         this.npcManaPoints = npc.getManaPoints();

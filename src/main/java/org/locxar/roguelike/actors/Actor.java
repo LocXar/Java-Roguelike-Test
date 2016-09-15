@@ -35,13 +35,13 @@ public abstract class Actor
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     /** The health points. */
-    private double healthPoints;
+    private long healthPoints;
 
     /** The mana points. */
-    private double manaPoints;
+    private long manaPoints;
 
     /** The action points. */
-    private double actionPoints;
+    private long actionPoints;
 
     /** The name. */
     private String name;
@@ -67,7 +67,7 @@ public abstract class Actor
      *
      * @return the health points
      */
-    public final double getHealthPoints()
+    public final long getHealthPoints()
     {
     return healthPoints;
     }
@@ -77,7 +77,7 @@ public abstract class Actor
      *
      * @param hP the new health points
      */
-    public final void setHealthPoints(final double hP)
+    public final void setHealthPoints(final long hP)
     {
     this.healthPoints = hP;
     }
@@ -87,7 +87,7 @@ public abstract class Actor
      *
      * @return the mana points
      */
-    public final double getManaPoints()
+    public final long getManaPoints()
     {
     return manaPoints;
     }
@@ -97,7 +97,7 @@ public abstract class Actor
      *
      * @param mP the new mana points
      */
-    public final void setManaPoints(final double mP)
+    public final void setManaPoints(final long mP)
     {
     this.manaPoints = mP;
     }
@@ -107,7 +107,7 @@ public abstract class Actor
      *
      * @return the action points
      */
-    public final double getActionPoints()
+    public final long getActionPoints()
     {
     return actionPoints;
     }
@@ -117,7 +117,7 @@ public abstract class Actor
      *
      * @param aP the new action points
      */
-    public final void setActionPoints(final double aP)
+    public final void setActionPoints(final long aP)
     {
     this.actionPoints = aP;
     }
