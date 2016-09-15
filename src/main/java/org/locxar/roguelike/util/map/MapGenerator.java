@@ -39,7 +39,6 @@ import org.slf4j.LoggerFactory;
  */
 public class MapGenerator
 {
-    
     /** The Constant slf4jLogger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(MapGenerator.class);
 

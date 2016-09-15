@@ -23,7 +23,6 @@ package org.locxar.roguelike.turn;
 
 import org.locxar.roguelike.actors.Npc;
 import org.locxar.roguelike.actors.Player;
-import org.locxar.roguelike.core.GameOver;
 import org.locxar.roguelike.core.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
