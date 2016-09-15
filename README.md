@@ -4,4 +4,4 @@ A simple test roguelike in Java.
 [Documentation](https://locxar.github.io/Java-Roguelike-Test)
 
 
-![UML](uml_class_diagrams.png)
+[UML](https://github.com/LocXar/Java-Roguelike-Test/blob/develop/uml_class_diagram.png)
