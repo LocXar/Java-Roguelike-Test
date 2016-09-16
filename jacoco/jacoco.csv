@@ -10,4 +10,4 @@ Java-Roguelike-Test,org.locxar.roguelike.turn,Turn,136,0,13,0,35,0,17,0,10,0
 Java-Roguelike-Test,org.locxar.roguelike.gui,MainFrame,4,0,0,0,2,0,2,0,2,0
 Java-Roguelike-Test,org.locxar.roguelike.map,Mapper,87,0,12,0,25,0,13,0,7,0
 Java-Roguelike-Test,org.locxar.roguelike.map,Location,36,0,0,0,10,0,4,0,4,0
-Java-Roguelike-Test,org.locxar.roguelike.util.map,MapGenerator,72,0,12,0,14,0,9,0,3,0
+Java-Roguelike-Test,org.locxar.roguelike.util.map,MapGenerator,76,0,12,0,15,0,9,0,3,0
