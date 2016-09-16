@@ -21,13 +21,9 @@
  */
 package org.locxar.roguelike.util.map;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Map;
 
+import org.locxar.roguelike.core.MagicNumbers;
 import org.locxar.roguelike.map.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,13 +57,14 @@ public class MapGenerator
     public final Map<Location, Character> generateTestMap(final Map<Location, Character> map)
     {
         int counter = 0;
-        for (int i = 0; i <= 256; i++) // Zeilen
+        for (int i = 0; i <= MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); i++) // Zeilen
         {
-            for (int j = 0; j <= 256; j++) // Spalten
+            for (int j = 0; j <= MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); j++) // Spalten
             {
                 counter++;
                 Location loc = new Location(i, j);
-                if (i == 0 || i == 256 || j == 0 || j == 256)
+                if (i == 0 || i == MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber() || j == 0
+                        || j == MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber())
                 {
                     map.put(loc, new Character('+'));
                 } else
