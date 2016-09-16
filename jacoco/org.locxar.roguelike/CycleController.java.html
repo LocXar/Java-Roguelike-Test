@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CycleController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Java-Roguelike-Test</a> &gt; <a href="index.source.html" class="el_package">org.locxar.roguelike</a> &gt; <span class="el_source">CycleController.java</span></div><h1>CycleController.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2016 LocXar
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package org.locxar.roguelike;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Map;
+
+import javax.swing.SwingUtilities;
+
+import org.locxar.roguelike.actors.Npc;
+import org.locxar.roguelike.actors.Player;
+import org.locxar.roguelike.core.MagicNumbers;
+import org.locxar.roguelike.gui.MainFrame;
+import org.locxar.roguelike.map.Location;
+import org.locxar.roguelike.map.Mapper;
+import org.locxar.roguelike.turn.Turn;
+import org.locxar.roguelike.util.map.MapGenerator;
+
+/**
+ * The Class BootCycle.
+ *
+ * @author LocXar
+ */
+public class CycleController
+{
+
+    /** The Constant slf4jLogger. */
+<span class="nc" id="L54">    private static final Logger LOGGER = LoggerFactory.getLogger(CycleController.class);</span>
+
+    /** The window. */
+    // The window handle
+    private long window;
+
+    /** The title. */
+<span class="nc" id="L61">    private String title = &quot;Test Title...&quot;;</span>
+
+    /** The width. */
+<span class="nc" id="L64">    private int width = MagicNumbers.THOUSANDTWENTYFOUR.getNumber();</span>
+
+    /** The height. */
+<span class="nc" id="L67">    private int height = MagicNumbers.SEVENHUNDREDSIXTYEIGHT.getNumber();</span>
+
+    /** The turn. */
+<span class="nc" id="L70">    private Turn turn = new Turn();</span>
+
+    /** The player. */
+    // Create new Player object
+<span class="nc" id="L74">    private Player player = new Player();</span>
+
+    /** The npc. */
+    // Create new Npc object
+<span class="nc" id="L78">    private Npc npc = new Npc();</span>
+
+    /** The map. */
+<span class="nc" id="L81">    private Mapper map = new Mapper();</span>
+
+    /** The mg. */
+<span class="nc" id="L84">    private MapGenerator mg = new MapGenerator();</span>
+
+    /** The newturn. */
+<span class="nc" id="L87">    private boolean newTurn = true;</span>
+
+    /** The start turn. */
+    private boolean startTurn;
+
+    /**
+     * Instantiates a new boot cycle.
+     */
+    public CycleController()
+<span class="nc" id="L96">    {</span>
+<span class="nc" id="L97">	this.startTurn = true;</span>
+<span class="nc" id="L98">    }</span>
+
+    /**
+     * Write 2 file.
+     *
+     * @param m
+     *            the map
+     */
+    private static void write2File(final Map&lt;Location, Character&gt; m)
+    {
+<span class="nc" id="L108">	String fileLocation = &quot;target/debug/map&quot;;</span>
+<span class="nc" id="L109">	String fileName = &quot;/map.save&quot;;</span>
+<span class="nc" id="L110">	Path pathToFile = Paths.get(fileLocation);</span>
+
+<span class="nc" id="L112">	FileOutputStream outFileStream = null;</span>
+<span class="nc" id="L113">	pathToFile.toFile().mkdirs();</span>
+	try
+	{
+<span class="nc" id="L116">	    outFileStream = new FileOutputStream(pathToFile.toString() + fileName);</span>
+
+<span class="nc" id="L118">	} catch (FileNotFoundException e)</span>
+	{ // EXCEPTION Auto-generated catch block
+<span class="nc" id="L120">	    LOGGER.error(&quot;Can't create outFileStream:\n&quot;, e);</span>
+<span class="nc" id="L121">	}</span>
+
+	try
+	{
+	    byte c;
+<span class="nc bnc" id="L126" title="All 2 branches missed.">	    for (int i = 0; i &lt; MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); i++) // Zeilen</span>
+	    {
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		for (int j = 0; j &lt; MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); j++) // Spalten</span>
+		{
+<span class="nc" id="L130">		    LOGGER.info(&quot;I: &quot; + i + &quot;\n&quot; + &quot;J: &quot; + j);</span>
+<span class="nc" id="L131">		    LOGGER.info(&quot;HashMap value: &quot; + m.get(new Location(i, j)).charValue());</span>
+<span class="nc" id="L132">		    c = (byte) m.get(new Location(i, j)).charValue();</span>
+<span class="nc" id="L133">		    System.out.println(c);</span>
+<span class="nc" id="L134">		    outFileStream.write(c);</span>
+		}
+<span class="nc" id="L136">		outFileStream.write('\n');</span>
+	    }
+<span class="nc" id="L138">	} catch (IOException e)</span>
+	{
+	    // EXCEPTION Auto-generated catch block
+<span class="nc" id="L141">	    LOGGER.error(&quot;Can't write outFileStream:\n&quot;, e);</span>
+<span class="nc" id="L142">	    e.printStackTrace();</span>
+<span class="nc" id="L143">	}</span>
+<span class="nc" id="L144">    }</span>
+
+    /**
+     * The main method.
+     *
+     * @param args
+     *            the arguments
+     */
+    public static void main(final String[] args)
+    {
+<span class="nc" id="L154">	CycleController cc = new CycleController();</span>
+<span class="nc" id="L155">	cc.coreGameLoop();</span>
+
+<span class="nc" id="L157">	SwingUtilities.invokeLater(new Runnable()</span>
+<span class="nc" id="L158">	{</span>
+
+	    @Override
+	    public void run()
+	    {
+<span class="nc" id="L163">		MainFrame mf = new MainFrame();</span>
+<span class="nc" id="L164">		mf.createAndShowGUI();</span>
+<span class="nc" id="L165">	    }</span>
+	});
+<span class="nc" id="L167">    }</span>
+
+    /**
+     * Run.
+     */
+    private void coreGameLoop()
+    {
+
+	try
+	{
+<span class="nc" id="L177">	    init();</span>
+<span class="nc" id="L178">	    loop();</span>
+<span class="nc" id="L179">	    gameOver();</span>
+
+	} finally
+	{
+<span class="nc" id="L183">	    System.exit(1);</span>
+<span class="nc" id="L184">	}</span>
+<span class="nc" id="L185">    }</span>
+
+    /**
+     * Inits the.
+     */
+    private void init()
+    {
+<span class="nc" id="L192">	this.map.setMap(this.mg.generateTestMap(this.map.getMap()));</span>
+
+<span class="nc" id="L194">	int i = 0;</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">	for (Character c : this.map.getMap().values())</span>
+	{
+<span class="nc" id="L197">	    i++;</span>
+<span class="nc" id="L198">	    System.out.println(i + &quot;: &quot; + c);</span>
+<span class="nc" id="L199">	}</span>
+
+	//System.out.println(this.map.getLocation(this.map.getMap(), this.map.getMap().get(key)).charValue());
+	//write2File(this.map.getMap());
+
+<span class="nc" id="L204">    }</span>
+
+    /**
+     * Loop.
+     */
+    private void loop()
+    {
+<span class="nc bnc" id="L211" title="All 2 branches missed.">	while (!isGameOver())</span>
+	{
+<span class="nc" id="L213">	    System.out.println(&quot;[EVENT] New Turn&quot;);</span>
+<span class="nc" id="L214">	    System.out.println(&quot;[STAT] actionPoints: &quot; + this.player.getActionPoints());</span>
+
+	    // Deactivate start of a new Turn until the turn is over.
+<span class="nc" id="L217">	    this.setNewTurn(false);</span>
+<span class="nc" id="L218">	    this.turn.turnListener(this.turn, this.getPlayer(), this.getNpc());</span>
+<span class="nc" id="L219">	    this.startTurn = this.turn.isStartTurn();</span>
+
+	    // Allow a new Turn.
+<span class="nc" id="L222">	    this.setNewTurn(true);</span>
+	}
+<span class="nc" id="L224">    }</span>
+
+    /**
+     * Checks if is game over.
+     *
+     * @return true, if is game over
+     */
+    private boolean isGameOver()
+    {
+	// TODO Auto-generated method stub
+<span class="nc bnc" id="L234" title="All 2 branches missed.">	if (this.getPlayer().getHealthPoints() &lt;= 0)</span>
+	{
+<span class="nc" id="L236">	    return true;</span>
+	}
+<span class="nc" id="L238">	return false;</span>
+    }
+
+    /**
+     * Game over.
+     */
+    private void gameOver()
+    {
+	// TODO Auto-generated method stub
+<span class="nc" id="L247">    }</span>
+
+    /**
+     * Gets the turn.
+     *
+     * @return the turn
+     */
+    public final Turn getTurn()
+    {
+<span class="nc" id="L256">	return turn;</span>
+    }
+
+    /**
+     * Sets the turn.
+     *
+     * @param t
+     *            the new turn
+     */
+    public final void setTurn(final Turn t)
+    {
+<span class="nc" id="L267">	this.turn = t;</span>
+<span class="nc" id="L268">    }</span>
+
+    /**
+     * Gets the newturn.*
+     * @return the newturn
+     */
+    public final boolean getNewTurn()
+    {
+<span class="nc" id="L276">	return newTurn;</span>
+    }
+
+    /**
+     * Sets the newturn.
+     *
+     * @param b
+     *            the new newturn
+     */
+    private void setNewTurn(final boolean b)
+    {
+<span class="nc" id="L287">	this.newTurn = b;</span>
+<span class="nc" id="L288">    }</span>
+
+    /**
+     * Gets the player.
+     *
+     * @return the player
+     */
+    private Player getPlayer()
+    {
+<span class="nc" id="L297">	return player;</span>
+    }
+
+    /**
+     * Sets the player.
+     *
+     * @param p
+     *            the new player
+     */
+    public final void setPlayer(final Player p)
+    {
+<span class="nc" id="L308">	this.player = p;</span>
+<span class="nc" id="L309">    }</span>
+
+    /**
+     * Gets the npc.
+     *
+     * @return the npc
+     */
+    private final Npc getNpc()
+    {
+<span class="nc" id="L318">	return npc;</span>
+    }
+
+    /**
+     * Sets the npc.
+     *
+     * @param n
+     *            the new npc
+     */
+    public final void setNpc(final Npc n)
+    {
+<span class="nc" id="L329">	this.npc = n;</span>
+<span class="nc" id="L330">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
