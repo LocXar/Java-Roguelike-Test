@@ -7,7 +7,31 @@
 	<name>Java-Roguelike-Test</name>
 
 	<url>https://locxar.github.io/Java-Roguelike-Test</url>
-
+	
+	<developers>
+		<developer>
+			<id>LocXar</id>
+			<name>Patrick</name>
+			<email>patrick.hasel@web.de</email>
+			<roles>
+				<role>Founder</role>
+				<role>Programmer</role>
+			</roles>
+			<timezone>+2</timezone>
+			<url>www.locxar.de</url>
+		</developer>
+	</developers>
+	
+	<inceptionYear>2016</inceptionYear>
+	<licenses>
+		<license>
+			<name>MIT</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+	
+	<description>A simple test roguelike in Java.</description>
+	
 	<issueManagement>
 		<system>GitHub Issues</system>
 		<url>https://github.com/LocXar/Java-Roguelike-Test/issues</url>

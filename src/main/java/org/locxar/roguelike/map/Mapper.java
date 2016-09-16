@@ -21,6 +21,7 @@
  */
 package org.locxar.roguelike.map;
 
+import org.locxar.roguelike.core.MagicNumbers;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +39,9 @@ public class Mapper
     /** The Constant slf4jLogger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(Mapper.class);
 
+    /** The magic num. */
+    private static MagicNumbers magicNumbers;
+
     /** The map. */
     private Map<Location, Character> map;
 
@@ -46,7 +50,7 @@ public class Mapper
      */
     public Mapper()
     {
-	this.map = new HashMap<Location, Character>();
+        this.map = new HashMap<Location, Character>();
     }
 
     /**
@@ -57,7 +61,7 @@ public class Mapper
      */
     public Mapper(final Map<Location, Character> m)
     {
-	this.map = m;
+        this.map = m;
     }
 
     /**
@@ -67,7 +71,7 @@ public class Mapper
      */
     public final Map<Location, Character> getMap()
     {
-	return this.map;
+        return this.map;
     }
 
     /**
@@ -78,7 +82,7 @@ public class Mapper
      */
     public final void setMap(final Map<Location, Character> m)
     {
-	this.map = m;
+        this.map = m;
     }
 
     /**
@@ -93,21 +97,22 @@ public class Mapper
      * @return the map
      */
     public final Map<Location, Character> addLocation(final Map<Location, Character> m, final Location loc,
-	    final Character s)
+            final Character s)
     {
-	if (loc.getX() >= 0 && loc.getX() < 256 && loc.getY() >= 0 && loc.getY() < 256)
-	{
-	    if (map.containsKey(loc))
-	    {
-		LOGGER.error("Mapper.addLocation(): Location found!");
-		throw new IllegalArgumentException("location must not be null");
-	    } else
-	    {
-		m.put(loc, s);
-	    }
-	}
-	return m;
-
+        if (loc.getX() >= 0 && loc.getX() < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber() && loc.getY() >= 0
+                && loc.getY() < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber())
+        {
+            if (map.containsKey(loc))
+            {
+                IllegalArgumentException e = new IllegalArgumentException();
+                LOGGER.error("Mapper.addLocation(): Location found!", e);
+                throw e;
+            } else
+            {
+                m.put(loc, s);
+            }
+        }
+        return m;
     }
 
     /**
@@ -121,17 +126,17 @@ public class Mapper
      */
     public final Character getLocation(final Map<Location, Character> m, final Location loc)
     {
-	Character c = null;
-	if (m.containsKey(loc))
-	{
-	    c = m.get(loc);
-	} else
-	{
-	    NullPointerException e = new NullPointerException("location must not be null");
-	    LOGGER.error("Mapper.getLocation(): Location not found!", e);
-	    throw e;
-	}
+        Character c = null;
+        if (m.containsKey(loc))
+        {
+            c = m.get(loc);
+        } else
+        {
+            NullPointerException e = new NullPointerException();
+            LOGGER.error("Location not found!", e);
+            throw e;
+        }
 
-	return c;
+        return c;
     }
 }

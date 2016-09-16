@@ -19,64 +19,60 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.roguelike.map;
+package org.locxar.roguelike.core;
 
-import org.locxar.roguelike.core.MagicNumbers;
-
+// TODO: Auto-generated Javadoc
 /**
- * The Class Location.
+ * The Enum MagicNumbers.
  *
  * @author LocXar
  */
-public class Location
+public enum MagicNumbers
 {
-    /** The x. */
-    private final int x;
 
-    /** The y. */
-    private final int y;
+    /** The ten. */
+    TEN(10),
+
+    /** The seventeen. */
+    SEVENTEEN(17),
+
+    /** The thirtyone. */
+    THIRTYONE(31),
+
+    /** The twohundredfiftysix. */
+    TWOHUNDREDFIFTYSIX(256),
+
+    /** The sevenhundredsixtyeight. */
+    SEVENHUNDREDSIXTYEIGHT(768),
+
+    /** The thousand. */
+    THOUSAND(1000),
+
+    /** The thousandtwentyfour. */
+    THOUSANDTWENTYFOUR(1024);
+
+    /** The number. */
+    private int number;
 
     /**
-     * Instantiates a new location.
+     * Instantiates a new magic numbers.
      *
-     * @param a
-     *            the x
-     * @param b
-     *            the y
+     * @param id the id
      */
-    public Location(final int a, final int b)
+    MagicNumbers(final int id)
     {
         // TODO Auto-generated constructor stub
-        this.x = a;
-        this.y = b;
+        this.number = id;
     }
 
     /**
-     * Gets the x.
+     * Gets the number.
      *
-     * @return the x
+     * @return the number
      */
-    public final int getX()
+    public final int getNumber()
     {
-        return x;
+        return this.number;
     }
 
-    /**
-     * Gets the y.
-     *
-     * @return the y
-     */
-    public final int getY()
-    {
-        return y;
-    }
-
-    @Override
-    public final int hashCode()
-    {
-        int result = MagicNumbers.SEVENTEEN.getNumber();
-        result = MagicNumbers.THIRTYONE.getNumber() * result + this.getX();
-        result = MagicNumbers.THIRTYONE.getNumber() * result + this.getY();
-        return result;
-    }
 }

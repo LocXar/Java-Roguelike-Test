@@ -35,6 +35,7 @@ import javax.swing.SwingUtilities;
 
 import org.locxar.roguelike.actors.Npc;
 import org.locxar.roguelike.actors.Player;
+import org.locxar.roguelike.core.MagicNumbers;
 import org.locxar.roguelike.gui.MainFrame;
 import org.locxar.roguelike.map.Location;
 import org.locxar.roguelike.map.Mapper;
@@ -60,10 +61,10 @@ public class CycleController
     private String title = "Test Title...";
 
     /** The width. */
-    private int width = 1024;
+    private int width = MagicNumbers.THOUSANDTWENTYFOUR.getNumber();
 
     /** The height. */
-    private int height = 768;
+    private int height = MagicNumbers.SEVENHUNDREDSIXTYEIGHT.getNumber();
 
     /** The turn. */
     private Turn turn = new Turn();
@@ -117,15 +118,14 @@ public class CycleController
 	} catch (FileNotFoundException e)
 	{ // EXCEPTION Auto-generated catch block
 	    LOGGER.error("Can't create outFileStream:\n", e);
-	    e.printStackTrace();
 	}
 
 	try
 	{
 	    byte c;
-	    for (int i = 0; i < 256; i++) // Zeilen
+	    for (int i = 0; i < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); i++) // Zeilen
 	    {
-		for (int j = 0; j < 256; j++) // Spalten
+		for (int j = 0; j < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); j++) // Spalten
 		{
 		    LOGGER.info("I: " + i + "\n" + "J: " + j);
 		    LOGGER.info("HashMap value: " + m.get(new Location(i, j)).charValue());
@@ -268,8 +268,7 @@ public class CycleController
     }
 
     /**
-     * Gets the newturn.
-     *
+     * Gets the newturn.*
      * @return the newturn
      */
     public final boolean getNewTurn()
@@ -283,7 +282,7 @@ public class CycleController
      * @param b
      *            the new newturn
      */
-    public final void setNewTurn(final boolean b)
+    private void setNewTurn(final boolean b)
     {
 	this.newTurn = b;
     }
@@ -293,7 +292,7 @@ public class CycleController
      *
      * @return the player
      */
-    public final Player getPlayer()
+    private Player getPlayer()
     {
 	return player;
     }
@@ -314,7 +313,7 @@ public class CycleController
      *
      * @return the npc
      */
-    public final Npc getNpc()
+    private final Npc getNpc()
     {
 	return npc;
     }

@@ -48,8 +48,8 @@ public class Turn
      */
     public Turn()
     {
-	// TODO Auto-generated constructor stub
-	this.setTYPE(Type.PLAYER);
+        // TODO Auto-generated constructor stub
+        this.setTYPE(Type.PLAYER);
     }
 
     /**
@@ -60,8 +60,8 @@ public class Turn
      */
     public Turn(final Type a)
     {
-	// TODO Auto-generated constructor stub
-	this.setTYPE(a);
+        // TODO Auto-generated constructor stub
+        this.setTYPE(a);
     }
 
     /**
@@ -71,7 +71,7 @@ public class Turn
      */
     public final Type getTYPE()
     {
-	return type;
+        return type;
     }
 
     /**
@@ -82,7 +82,7 @@ public class Turn
      */
     public final void setTYPE(final Type a)
     {
-	this.type = a;
+        this.type = a;
     }
 
     /**
@@ -101,20 +101,21 @@ public class Turn
     public final void turnListener(final Turn turn, final Player player, final Npc npc)
     {
 
-	switch (turn.type.getTypeId())
-	{
-	case 0:
-	    playerTurn(player, npc);
-	    break;
+        switch (turn.type.getTypeId())
+        {
+        case 0:
+            playerTurn(player, npc);
+            break;
 
-	case 1:
-	    npcTurn(player, npc);
-	    break;
+        case 1:
+            npcTurn(player, npc);
+            break;
 
-	default:
-	    LOGGER.error("Turn Type unknown.");
-	    throw new IllegalStateException("Turn Type unknown.");
-	}
+        default:
+            IllegalStateException e = new IllegalStateException();
+            LOGGER.error("Turn Type unknown.", e);
+            throw e;
+        }
     }
 
     /**
@@ -127,14 +128,14 @@ public class Turn
      */
     private void playerTurn(final Player player, final Npc npc)
     {
-	// TODO Auto-generated method stub
-	LOGGER.info("This is the PlayerTurn!");
-	while (player.getActionPoints() > 0)
-	{
-	    System.out.println("Actionpoints over 10: " + player.getActionPoints());
-	    player.setActionPoints(player.getActionPoints() - 1);
-	}
-	this.setTYPE(Type.NPC);
+        // TODO Auto-generated method stub
+        LOGGER.info("This is the PlayerTurn!");
+        while (player.getActionPoints() > 0 && player.getHealthPoints() > 0)
+        {
+            System.out.println("Actionpoints over 10: " + player.getActionPoints());
+            player.setActionPoints(player.getActionPoints() - 1);
+        }
+        this.setTYPE(Type.NPC);
     }
 
     /**
@@ -147,9 +148,14 @@ public class Turn
      */
     private void npcTurn(final Player player, final Npc npc)
     {
-	// TODO Auto-generated method stub
-	LOGGER.info("This is the NpcTurn!");
-	this.setTYPE(Type.PLAYER);
+        LOGGER.info("This is the NpcTurn!");
+        while (npc.getActionPoints() > 0 && npc.getHealthPoints() > 0 && player.getHealthPoints() > 0)
+        {
+            // TODO Auto-generated method stub
+            System.out.println("Actionpoints over 10: " + npc.getActionPoints());
+            npc.setActionPoints(npc.getActionPoints() - 1);
+        }
+        this.setTYPE(Type.PLAYER);
     }
 
     /**
@@ -159,7 +165,7 @@ public class Turn
      */
     public final boolean isStartTurn()
     {
-	return startTurn;
+        return startTurn;
     }
 
     /**
@@ -170,7 +176,7 @@ public class Turn
      */
     public final void setStartTurn(final boolean st)
     {
-	this.startTurn = st;
+        this.startTurn = st;
     }
 
 }

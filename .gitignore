@@ -46,8 +46,11 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Directories potentially created in the project directory
+# Eclipse Project files
 .classpath
 .project
-target/*
+.checkstyle
+
+# Directories potentially created in the project directory
+/.settings
 /target/

@@ -1,214 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.10" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
   realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="org.locxar.roguelike.actors.Actor" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/actors/Actor.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="428" y="706"/>    
+  <class id="1" language="java" name="org.locxar.roguelike.util.map.MapGenerator" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/util/map/MapGenerator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="461" y="387"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="2" language="java" name="org.locxar.roguelike.map.AbstractMapper" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/map/AbstractMapper.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="63" width="116" x="499" y="279"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="3" language="java" name="org.locxar.roguelike.map.Mapper" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/map/Mapper.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="439" x="1024" y="796"/>    
+  <class id="2" language="java" name="org.locxar.roguelike.gui.MainFrame" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/gui/MainFrame.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="775" y="225"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="org.locxar.roguelike.gui.MainFrame" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/gui/MainFrame.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="785" y="330"/>    
+  <class id="3" language="java" name="org.locxar.roguelike.map.Location" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/map/Location.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="272" y="770"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="org.locxar.roguelike.map.Location" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/map/Location.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1601" y="907"/>    
+  <class id="4" language="java" name="org.locxar.roguelike.actors.Player" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/actors/Player.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1738" y="825"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="org.locxar.roguelike.actors.Player" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/actors/Player.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="534" y="1105"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="org.locxar.roguelike.CycleController" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/CycleController.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="477" width="228" x="984" y="279"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <enumeration id="8" language="java" name="org.locxar.roguelike.core.Type" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/core/Type.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1107" y="1112"/>    
+  <enumeration id="5" language="java" name="org.locxar.roguelike.core.Type" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/core/Type.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1322" y="262"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="9" language="java" name="org.locxar.roguelike.actors.Npc" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/actors/Npc.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="815" y="615"/>    
+  <class id="6" language="java" name="org.locxar.roguelike.map.Mapper" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/map/Mapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="439" x="490" y="693"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="org.locxar.roguelike.util.map.MapGenerator" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/util/map/MapGenerator.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1485" y="727"/>    
+  <class id="7" language="java" name="org.locxar.roguelike.CycleController" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/CycleController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="477" width="228" x="950" y="176"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="org.locxar.roguelike.core.GameOver" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/core/GameOver.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="619" y="845"/>    
+  <class id="8" language="java" name="org.locxar.roguelike.turn.Turn" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/turn/Turn.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1538" y="393"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="org.locxar.roguelike.turn.Turn" project="Java-Roguelike-Test" 
-    file="/Java-Roguelike-Test/src/main/java/org/locxar/roguelike/turn/Turn.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="191" x="772" y="796"/>    
+  <class id="9" language="java" name="org.locxar.roguelike.actors.Actor" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/actors/Actor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1410" y="1036"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
+  <class id="10" language="java" name="org.locxar.roguelike.actors.Npc" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/actors/Npc.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1402" y="738"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="11" language="java" name="org.locxar.roguelike.core.MagicNumbers" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/core/MagicNumbers.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1158" y="843"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <interface id="12" language="java" name="org.locxar.roguelike.map.AbstractMapper" project="Game" 
+    file="/Game/src/main/java/org/locxar/roguelike/map/AbstractMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="545" y="219"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
   <dependency id="13">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="11"/>  
   </dependency>  
-  <association id="14">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="15" name="type"/>      
-      <multiplicity id="16" minimum="0" maximum="1"/>    
+  <generalization id="14">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <dependency id="15">    
+    <bendpoint x="661" y="1048"/>    
+    <bendpoint x="1073" y="1041"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="16">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="17" name="turn"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="17">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="18" name="npc"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="20">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="21" name="mg"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="23">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
+  <dependency id="19">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="4"/>  
   </dependency>  
-  <generalization id="24">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <dependency id="25">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="6"/>  
+  <dependency id="20">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
   </dependency>  
-  <dependency id="26">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="6"/>  
+  <dependency id="21">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="27">    
-    <end type="SOURCE" refId="12"/>    
+  <generalization id="22">    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="23">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="24" name="type"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="26">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="28">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <association id="29">    
-    <bendpoint x="319" y="519"/>    
-    <bendpoint x="326" y="898"/>    
+  <association id="27">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="30" name="player"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
+      <attribute id="28" name="map"/>      
+      <multiplicity id="29" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="33" name="map"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
+  <dependency id="30">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="31">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="32" name="magicNumbers"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="35">    
-    <bendpoint x="1681" y="663"/>    
-    <bendpoint x="1683" y="829"/>    
+  <dependency id="34">    
     <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="TARGET" refId="2"/>  
   </dependency>  
-  <association id="36">    
+  <association id="35">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="37" name="turn"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
+      <attribute id="36" name="player"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="39">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="9"/>  
+  <dependency id="38">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
   </dependency>  
-  <generalization id="40">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
+  <dependency id="39">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="40">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="41" name="npc"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="44" name="mg"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

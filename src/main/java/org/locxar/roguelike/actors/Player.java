@@ -21,6 +21,8 @@
  */
 package org.locxar.roguelike.actors;
 
+import org.locxar.roguelike.core.MagicNumbers;
+
 /**
  * The Class Player.
  *
@@ -35,9 +37,9 @@ public class Player extends Actor
     {
 	// TODO Auto-generated constructor stub
 	this.setName("LocXar");
-	this.setHealthPoints(1000);
-	this.setManaPoints(1000);
-	this.setActionPoints(10);
+	this.setHealthPoints(MagicNumbers.THOUSAND.getNumber());
+	this.setManaPoints(MagicNumbers.THOUSAND.getNumber());
+	this.setActionPoints(MagicNumbers.TEN.getNumber());
 	logger.info("Player Object created.");
     }
 }
