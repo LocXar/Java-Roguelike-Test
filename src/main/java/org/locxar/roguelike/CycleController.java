@@ -108,9 +108,12 @@ public class CycleController
 	String fileLocation = "target/debug/map";
 	String fileName = "/map.save";
 	Path pathToFile = Paths.get(fileLocation);
+	pathToFile = pathToFile.toAbsolutePath();
+	LOGGER.info("filePath + fileName: " + pathToFile.toString() + fileName);
 
 	FileOutputStream outFileStream = null;
 	pathToFile.toFile().mkdirs();
+
 	try
 	{
 	    outFileStream = new FileOutputStream(pathToFile.toString() + fileName);
@@ -122,25 +125,27 @@ public class CycleController
 
 	try
 	{
-	    byte c;
+	    int c;
 	    for (int i = 0; i < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); i++) // Zeilen
 	    {
 		for (int j = 0; j < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); j++) // Spalten
 		{
 		    LOGGER.info("I: " + i + "\n" + "J: " + j);
-		    LOGGER.info("HashMap value: " + m.get(new Location(i, j)).charValue());
-		    c = (byte) m.get(new Location(i, j)).charValue();
-		    System.out.println(c);
+		    // LOGGER.info("HashMap value: " + m.get(new Location(i, j)).hashCode());
+		    c = m.get(new Location(i, j)).hashCode();
+		    // System.out.println(c);
 		    outFileStream.write(c);
 		}
 		outFileStream.write('\n');
 	    }
+	    outFileStream.close();
 	} catch (IOException e)
 	{
 	    // EXCEPTION Auto-generated catch block
 	    LOGGER.error("Can't write outFileStream:\n", e);
 	    e.printStackTrace();
 	}
+	System.out.println("end of writeFile()");
     }
 
     /**
@@ -154,16 +159,12 @@ public class CycleController
 	CycleController cc = new CycleController();
 	cc.coreGameLoop();
 
-	SwingUtilities.invokeLater(new Runnable()
-	{
-
-	    @Override
-	    public void run()
-	    {
-		MainFrame mf = new MainFrame();
-		mf.createAndShowGUI();
-	    }
-	});
+	/*
+	 * SwingUtilities.invokeLater(new Runnable() {
+	 * 
+	 * @Override public void run() { MainFrame mf = new MainFrame();
+	 * mf.createAndShowGUI(); } });
+	 */
     }
 
     /**
@@ -198,8 +199,9 @@ public class CycleController
 	    System.out.println(i + ": " + c);
 	}
 
-	//System.out.println(this.map.getLocation(this.map.getMap(), this.map.getMap().get(key)).charValue());
-	//write2File(this.map.getMap());
+	// System.out.println(this.map.getLocation(this.map.getMap(),
+	// this.map.getMap().get(key)).charValue());
+	write2File(this.map.getMap());
 
     }
 
@@ -268,7 +270,8 @@ public class CycleController
     }
 
     /**
-     * Gets the newturn.*
+     * Gets the newturn.
+     *
      * @return the newturn
      */
     public final boolean getNewTurn()
@@ -313,7 +316,7 @@ public class CycleController
      *
      * @return the npc
      */
-    private final Npc getNpc()
+    private Npc getNpc()
     {
 	return npc;
     }
