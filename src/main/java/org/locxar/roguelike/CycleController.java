@@ -29,6 +29,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import javax.swing.SwingUtilities;
@@ -36,11 +38,11 @@ import javax.swing.SwingUtilities;
 import org.locxar.roguelike.actors.Npc;
 import org.locxar.roguelike.actors.Player;
 import org.locxar.roguelike.core.MagicNumbers;
-import org.locxar.roguelike.gui.MainFrame;
-import org.locxar.roguelike.map.Location;
-import org.locxar.roguelike.map.Mapper;
+import org.locxar.roguelike.gui.MainWindow;
+import org.locxar.roguelike.plan.Location;
+import org.locxar.roguelike.plan.Plan;
 import org.locxar.roguelike.turn.Turn;
-import org.locxar.roguelike.util.map.MapGenerator;
+import org.locxar.roguelike.util.plan.PlanGenerator;
 
 /**
  * The Class BootCycle.
@@ -52,10 +54,6 @@ public class CycleController
 
     /** The Constant slf4jLogger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(CycleController.class);
-
-    /** The window. */
-    // The window handle
-    private long window;
 
     /** The title. */
     private String title = "Test Title...";
@@ -78,23 +76,22 @@ public class CycleController
     private Npc npc = new Npc();
 
     /** The map. */
-    private Mapper map = new Mapper();
+    private Plan map = new Plan();
 
     /** The mg. */
-    private MapGenerator mg = new MapGenerator();
+    private PlanGenerator mg = new PlanGenerator();
 
     /** The newturn. */
     private boolean newTurn = true;
 
-    /** The start turn. */
-    private boolean startTurn;
+    /** The time start. */
+    final long timeStart = System.currentTimeMillis();
 
     /**
      * Instantiates a new boot cycle.
      */
     public CycleController()
     {
-	this.startTurn = true;
     }
 
     /**
@@ -131,7 +128,8 @@ public class CycleController
 		for (int j = 0; j < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); j++) // Spalten
 		{
 		    LOGGER.info("I: " + i + "\n" + "J: " + j);
-		    // LOGGER.info("HashMap value: " + m.get(new Location(i, j)).hashCode());
+		    // LOGGER.info("HashMap value: " + m.get(new Location(i,
+		    // j)).hashCode());
 		    c = m.get(new Location(i, j)).hashCode();
 		    // System.out.println(c);
 		    outFileStream.write(c);
@@ -156,33 +154,18 @@ public class CycleController
      */
     public static void main(final String[] args)
     {
+	MainWindow window = new MainWindow();
+	window.setVisible(true);
+
 	CycleController cc = new CycleController();
 	cc.coreGameLoop();
 
 	/*
 	 * SwingUtilities.invokeLater(new Runnable() {
-	 * 
+	 *
 	 * @Override public void run() { MainFrame mf = new MainFrame();
 	 * mf.createAndShowGUI(); } });
 	 */
-    }
-
-    /**
-     * Run.
-     */
-    private void coreGameLoop()
-    {
-
-	try
-	{
-	    init();
-	    loop();
-	    gameOver();
-
-	} finally
-	{
-	    System.exit(1);
-	}
     }
 
     /**
@@ -201,7 +184,7 @@ public class CycleController
 
 	// System.out.println(this.map.getLocation(this.map.getMap(),
 	// this.map.getMap().get(key)).charValue());
-	write2File(this.map.getMap());
+	// write2File(this.map.getMap());
 
     }
 
@@ -210,18 +193,32 @@ public class CycleController
      */
     private void loop()
     {
+	LOGGER.info("" + !isGameOver());
 	while (!isGameOver())
 	{
 	    System.out.println("[EVENT] New Turn");
 	    System.out.println("[STAT] actionPoints: " + this.player.getActionPoints());
 
-	    // Deactivate start of a new Turn until the turn is over.
-	    this.setNewTurn(false);
 	    this.turn.turnListener(this.turn, this.getPlayer(), this.getNpc());
-	    this.startTurn = this.turn.isStartTurn();
+	}
+    }
 
-	    // Allow a new Turn.
-	    this.setNewTurn(true);
+    /**
+     * Run.
+     */
+    private void coreGameLoop()
+    {
+
+	try
+	{
+	    init();
+	    loop();
+	    gameOver();
+	    neverEnd();
+
+	} finally
+	{
+	    System.exit(1);
 	}
     }
 
@@ -233,7 +230,7 @@ public class CycleController
     private boolean isGameOver()
     {
 	// TODO Auto-generated method stub
-	if (this.getPlayer().getHealthPoints() <= 0)
+	if (this.getPlayer().getHealthPoints() <= 0 || this.getPlayer().getActionPoints() <= 0)
 	{
 	    return true;
 	}
@@ -246,6 +243,25 @@ public class CycleController
     private void gameOver()
     {
 	// TODO Auto-generated method stub
+	System.out
+		.println("HP: " + this.getPlayer().getHealthPoints() + "   AP: " + this.getPlayer().getActionPoints());
+	System.out.println("Game Over buddy ;-)");
+    }
+
+    /**
+     * Never end.
+     */
+    private void neverEnd()
+    {
+	// TODO Auto-generated method stub
+	final long timeEnd = System.currentTimeMillis();
+	Date d = new Date((timeEnd - timeStart));
+	SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
+	System.out.println(sdf.format(d));
+	while (true)
+	{
+	}
+
     }
 
     /**
@@ -277,17 +293,6 @@ public class CycleController
     public final boolean getNewTurn()
     {
 	return newTurn;
-    }
-
-    /**
-     * Sets the newturn.
-     *
-     * @param b
-     *            the new newturn
-     */
-    private void setNewTurn(final boolean b)
-    {
-	this.newTurn = b;
     }
 
     /**

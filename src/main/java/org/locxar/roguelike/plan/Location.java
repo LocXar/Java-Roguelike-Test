@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.roguelike.map;
+package org.locxar.roguelike.plan;
 
 import org.locxar.roguelike.core.MagicNumbers;
 

@@ -1,4 +1,4 @@
-package org.locxar.roguelike.gui;
+package org.locxar.roguelike.plan;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 /**
  * Created by LocXar on 16.09.2016.
  */
-public class MainFrameTest
+public class LocationTest
 {
 
     /**
@@ -36,12 +36,25 @@ public class MainFrameTest
     }
 
     /**
-     * Creates the and show GUI.
+     * Gets the x.
      *
+     * @return the x
      * @throws Exception the exception
      */
     @Test
-    public void createAndShowGUI() throws Exception
+    public void getX() throws Exception
+    {
+
+    }
+
+    /**
+     * Gets the y.
+     *
+     * @return the y
+     * @throws Exception the exception
+     */
+    @Test
+    public void getY() throws Exception
     {
 
     }

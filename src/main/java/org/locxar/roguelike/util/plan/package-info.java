@@ -23,4 +23,4 @@
  * @author LocXar
  *
  */
-package org.locxar.roguelike.util.map;
+package org.locxar.roguelike.util.plan;

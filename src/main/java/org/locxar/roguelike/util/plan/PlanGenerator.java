@@ -19,12 +19,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.roguelike.util.map;
+package org.locxar.roguelike.util.plan;
 
 import java.util.Map;
 
 import org.locxar.roguelike.core.MagicNumbers;
-import org.locxar.roguelike.map.Location;
+import org.locxar.roguelike.plan.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,15 +33,15 @@ import org.slf4j.LoggerFactory;
  *
  * @author LocXar
  */
-public class MapGenerator
+public class PlanGenerator
 {
     /** The Constant slf4jLogger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(MapGenerator.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PlanGenerator.class);
 
     /**
      * Instantiates a new map generator.
      */
-    public MapGenerator()
+    public PlanGenerator()
     {
         // TODO Auto-generated constructor stub
         LOGGER.info("MapGenerator Object created");

@@ -1,4 +1,4 @@
-package org.locxar.roguelike.util.map;
+package org.locxar.roguelike.util.plan;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 /**
  * Created by LocXar on 16.09.2016.
  */
-public class MapGeneratorTest
+public class PlanGeneratorTest
 {
 
     /**

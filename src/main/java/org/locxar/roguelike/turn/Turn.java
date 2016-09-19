@@ -158,25 +158,4 @@ public class Turn
         this.setTYPE(Type.PLAYER);
     }
 
-    /**
-     * Checks if is start turn.
-     *
-     * @return true, if is start turn
-     */
-    public final boolean isStartTurn()
-    {
-        return startTurn;
-    }
-
-    /**
-     * Sets the start turn.
-     *
-     * @param st
-     *            the new start turn
-     */
-    public final void setStartTurn(final boolean st)
-    {
-        this.startTurn = st;
-    }
-
 }

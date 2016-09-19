@@ -19,8 +19,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.locxar.roguelike.plan;
+
 /**
  * @author LocXar
  *
  */
-package org.locxar.roguelike.map;
+public interface AbstractPlan
+{
+
+}

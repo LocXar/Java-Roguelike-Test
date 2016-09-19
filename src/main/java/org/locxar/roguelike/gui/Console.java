@@ -19,13 +19,43 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.roguelike.map;
+package org.locxar.roguelike.gui;
 
+import java.awt.Color;
+
+import javax.swing.JTextArea;
+import javax.swing.text.Document;
+
+// TODO: Auto-generated Javadoc
 /**
- * @author LocXar
+ * The Class Console.
  *
+ * @author LocXar
  */
-public interface AbstractMapper
+public class Console extends JTextArea
 {
+
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 1480381816224377786L;
+
+    /**
+     * Instantiates a new console.
+     *
+     * @param doc
+     *            the doc
+     * @param text
+     *            the text
+     * @param rows
+     *            the rows
+     * @param columns
+     *            the columns
+     */
+    public Console(final Document doc, final String text, final int rows, final int columns)
+    {
+	// TODO Auto-generated constructor stub
+	super(doc, text, rows, columns);
+	setBackground(new Color(0, 0, 0));
+	setForeground(new Color(255, 255, 255));
+    }
 
 }

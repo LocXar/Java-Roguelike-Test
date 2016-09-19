@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.roguelike.map;
+package org.locxar.roguelike.plan;
 
 import org.locxar.roguelike.core.MagicNumbers;
 import java.util.HashMap;
@@ -33,14 +33,11 @@ import org.slf4j.LoggerFactory;
  *
  * @author LocXar
  */
-public class Mapper
+public class Plan
 {
 
     /** The Constant slf4jLogger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(Mapper.class);
-
-    /** The magic num. */
-    private static MagicNumbers magicNumbers;
+    private static final Logger LOGGER = LoggerFactory.getLogger(Plan.class);
 
     /** The map. */
     private Map<Location, Character> map;
@@ -48,7 +45,7 @@ public class Mapper
     /**
      * Instantiates a new mapper.
      */
-    public Mapper()
+    public Plan()
     {
         this.map = new HashMap<Location, Character>();
     }
@@ -59,7 +56,7 @@ public class Mapper
      * @param m
      *            the map
      */
-    public Mapper(final Map<Location, Character> m)
+    public Plan(final Map<Location, Character> m)
     {
         this.map = m;
     }

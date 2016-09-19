@@ -1,4 +1,4 @@
-package org.locxar.roguelike.map;
+package org.locxar.roguelike.plan;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 /**
  * Created by LocXar on 16.09.2016.
  */
-public class LocationTest
+public class PlanTest
 {
 
     /**
@@ -36,25 +36,47 @@ public class LocationTest
     }
 
     /**
-     * Gets the x.
+     * Gets the map.
      *
-     * @return the x
+     * @return the map
      * @throws Exception the exception
      */
     @Test
-    public void getX() throws Exception
+    public void getMap() throws Exception
     {
 
     }
 
     /**
-     * Gets the y.
+     * Sets the map.
      *
-     * @return the y
      * @throws Exception the exception
      */
     @Test
-    public void getY() throws Exception
+    public void setMap() throws Exception
+    {
+
+    }
+
+    /**
+     * Adds the location.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void addLocation() throws Exception
+    {
+
+    }
+
+    /**
+     * Gets the location.
+     *
+     * @return the location
+     * @throws Exception the exception
+     */
+    @Test
+    public void getLocation() throws Exception
     {
 
     }
