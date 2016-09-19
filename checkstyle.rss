@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 19,
+      <title>File: 20,
              Errors: 0,
-             Warnings: 7,
+             Warnings: 14,
              Infos: 0
       </title>
             <link>https://locxar.github.io/Java-Roguelike-Test/checkstyle.html</link>
@@ -74,13 +74,13 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.map.Mapper.java">org/locxar/roguelike/map/Mapper.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.gui.Console.java">org/locxar/roguelike/gui/Console.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  0
+                  4
                 </td>
                 <td>
                   0
@@ -158,7 +158,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.map.package-info.java">org/locxar/roguelike/map/package-info.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.gui.MainWindow.java">org/locxar/roguelike/gui/MainWindow.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.plan.AbstractPlan.java">org/locxar/roguelike/plan/AbstractPlan.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.plan.Location.java">org/locxar/roguelike/plan/Location.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +214,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.util.map.package-info.java">org/locxar/roguelike/util/map/package-info.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.plan.Plan.java">org/locxar/roguelike/plan/Plan.java</a>
                 </td>
                 <td>
                   0
@@ -214,35 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.map.AbstractMapper.java">org/locxar/roguelike/map/AbstractMapper.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.package-info.java">org/locxar/roguelike/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.util.map.MapGenerator.java">org/locxar/roguelike/util/map/MapGenerator.java</a>
                 </td>
                 <td>
                   0
@@ -270,13 +270,27 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.map.Location.java">org/locxar/roguelike/map/Location.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.plan.package-info.java">org/locxar/roguelike/plan/package-info.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  1
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.util.plan.package-info.java">org/locxar/roguelike/util/plan/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
                 <td>
                   0
@@ -298,13 +312,13 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.gui.MainFrame.java">org/locxar/roguelike/gui/MainFrame.java</a>
+                  <a href="https://locxar.github.io/Java-Roguelike-Test/checkstyle.html#org.locxar.roguelike.util.plan.PlanGenerator.java">org/locxar/roguelike/util/plan/PlanGenerator.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
                 <td>
                   0
