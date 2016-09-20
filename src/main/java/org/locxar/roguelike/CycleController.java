@@ -24,6 +24,7 @@ package org.locxar.roguelike;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,6 +33,7 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
+import java.util.Scanner;
 
 import javax.swing.SwingUtilities;
 
@@ -100,24 +102,20 @@ public class CycleController
      * @param m
      *            the map
      */
-    private static void write2File(final Map<Location, Character> m)
+    /*private static void write2File(final Map<Location, Character> m)
     {
 	String fileLocation = "target/debug/map";
 	String fileName = "/map.save";
-	Path pathToFile = Paths.get(fileLocation);
-	pathToFile = pathToFile.toAbsolutePath();
-	LOGGER.info("filePath + fileName: " + pathToFile.toString() + fileName);
+	LOGGER.info("fileLocation + fileName: " + fileLocation + fileName);
 
-	FileOutputStream outFileStream = null;
-	pathToFile.toFile().mkdirs();
+	try (Scanner scanner = new Scanner(new File(fileLocation + fileName))) {
 
-	try
-	{
-	    outFileStream = new FileOutputStream(pathToFile.toString() + fileName);
+		while (scanner.hasNext()){
+			System.out.println(scanner.nextLine());
+		}
 
-	} catch (FileNotFoundException e)
-	{ // EXCEPTION Auto-generated catch block
-	    LOGGER.error("Can't create outFileStream:\n", e);
+	} catch (IOException e) {
+		e.printStackTrace();
 	}
 
 	try
@@ -128,10 +126,10 @@ public class CycleController
 		for (int j = 0; j < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); j++) // Spalten
 		{
 		    LOGGER.info("I: " + i + "\n" + "J: " + j);
-		    // LOGGER.info("HashMap value: " + m.get(new Location(i,
-		    // j)).hashCode());
+		    LOGGER.info("HashMap value: " + m.get(new Location(i,
+		    
 		    c = m.get(new Location(i, j)).hashCode();
-		    // System.out.println(c);
+		    System.out.println(c);
 		    outFileStream.write(c);
 		}
 		outFileStream.write('\n');
@@ -139,12 +137,12 @@ public class CycleController
 	    outFileStream.close();
 	} catch (IOException e)
 	{
-	    // EXCEPTION Auto-generated catch block
+	    EXCEPTION Auto-generated catch block
 	    LOGGER.error("Can't write outFileStream:\n", e);
 	    e.printStackTrace();
 	}
 	System.out.println("end of writeFile()");
-    }
+    }*/
 
     /**
      * The main method.
@@ -185,7 +183,6 @@ public class CycleController
 	// System.out.println(this.map.getLocation(this.map.getMap(),
 	// this.map.getMap().get(key)).charValue());
 	// write2File(this.map.getMap());
-
     }
 
     /**
@@ -261,7 +258,6 @@ public class CycleController
 	while (true)
 	{
 	}
-
     }
 
     /**

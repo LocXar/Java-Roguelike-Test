@@ -26,7 +26,7 @@ public class MainWindow extends JFrame
     public final void createAndShowGUI()
     {
 	// TODO Auto-generated method stub
-	setTitle("Simple example");
+	setTitle("Example Window");
 	setSize(300, 200);
 	setLocationRelativeTo(null);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);

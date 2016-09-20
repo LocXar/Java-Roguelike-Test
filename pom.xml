@@ -38,7 +38,7 @@
 	</issueManagement>
 
 	<scm>
-		<developerConnection>scm:git:git@github.com/LocXar/Java-Roguelike-Test/tree/develop</developerConnection>
+		<developerConnection>scm:git:git@github.com/LocXar/Java-Roguelike-Test.git</developerConnection>
 		<connection>scm:git:git://github.com/LocXar/Java-Roguelike-Test.git</connection>
 		<url>https://github.com/LocXar/Java-Roguelike-Test</url>
 	</scm>
@@ -134,7 +134,7 @@
 					<show>private</show>
 					<detail>true</detail>
 					<verbose>true</verbose>
-					<stylesheet>java</stylesheet>
+					<stylesheetfile>${basedir}/siteResources/stylesheet.css</stylesheetfile>
 					<use>true</use>
 				</configuration>
 			</plugin>
@@ -150,16 +150,6 @@
 
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-scm-publish-plugin</artifactId>
-					<version>1.1</version>
-					<configuration>
-						<!-- mono-module doesn't require site:stage -->
-						<content>${project.reporting.outputDirectory}</content>
-						<scmBranch>gh-pages</scmBranch>
-					</configuration>
-				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -216,8 +206,18 @@
 					<show>private</show>
 					<detail>true</detail>
 					<verbose>true</verbose>
-					<stylesheet>java</stylesheet>
+					<stylesheetfile>${basedir}/siteResources/stylesheet.css</stylesheetfile>
 					<use>true</use>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<!-- mono-module doesn't require site:stage -->
+					<content>${project.reporting.outputDirectory}</content>
+					<scmBranch>gh-pages</scmBranch>
 				</configuration>
 			</plugin>
 		</plugins>
