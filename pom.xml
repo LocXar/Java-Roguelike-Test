@@ -199,6 +199,26 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<configuration>
+					<doclet>ydoc.doclets.YStandard</doclet>
+					<docletPath>${basedir}/siteResources/ydoc.jar:${basedir}/siteResources/resources</docletPath>
+					<!-- <docletArtifact> <groupId>org.umlgraph</groupId> <artifactId>umlgraph</artifactId> 
+						<version>5.6.6</version> </docletArtifact> -->
+					<additionalparam>-umlautogen</additionalparam>
+					<useStandardDocletOptions>true</useStandardDocletOptions>
+					<!-- General Javadoc settings -->
+					<doctitle>${project.name} (${project.version})</doctitle>
+					<!-- Apple's JVM sometimes requires more memory -->
+					<additionalJOption>-J-Xmx1024m</additionalJOption>
+					<level>private</level>
+					<name>JavaDoc</name>
+					<show>private</show>
+					<detail>true</detail>
+					<verbose>true</verbose>
+					<stylesheet>java</stylesheet>
+					<use>true</use>
+				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>
