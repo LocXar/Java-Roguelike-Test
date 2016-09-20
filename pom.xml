@@ -7,7 +7,7 @@
 	<name>Java-Roguelike-Test</name>
 
 	<url>https://locxar.github.io/Java-Roguelike-Test</url>
-	
+
 	<developers>
 		<developer>
 			<id>LocXar</id>
@@ -21,7 +21,7 @@
 			<url>www.locxar.de</url>
 		</developer>
 	</developers>
-	
+
 	<inceptionYear>2016</inceptionYear>
 	<licenses>
 		<license>
@@ -29,9 +29,9 @@
 			<url>https://opensource.org/licenses/MIT</url>
 		</license>
 	</licenses>
-	
+
 	<description>A simple test roguelike in Java.</description>
-	
+
 	<issueManagement>
 		<system>GitHub Issues</system>
 		<url>https://github.com/LocXar/Java-Roguelike-Test/issues</url>
@@ -66,8 +66,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -119,9 +119,23 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.4</version>
 				<configuration>
+					<doclet>ydoc.doclets.YStandard</doclet>
+					<docletPath>${basedir}/siteResources/ydoc.jar:${basedir}/siteResources/resources</docletPath>
+					<!-- <docletArtifact> <groupId>org.umlgraph</groupId> <artifactId>umlgraph</artifactId> 
+						<version>5.6.6</version> </docletArtifact> -->
+					<additionalparam>-umlautogen</additionalparam>
+					<useStandardDocletOptions>true</useStandardDocletOptions>
+					<!-- General Javadoc settings -->
+					<doctitle>${project.name} (${project.version})</doctitle>
+					<!-- Apple's JVM sometimes requires more memory -->
+					<additionalJOption>-J-Xmx1024m</additionalJOption>
 					<level>private</level>
 					<name>JavaDoc</name>
 					<show>private</show>
+					<detail>true</detail>
+					<verbose>true</verbose>
+					<stylesheet>java</stylesheet>
+					<use>true</use>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -192,7 +206,7 @@
 	<dependencies>
 		<!-- <dependency> <groupId>com.eleet</groupId> <artifactId>dragonconsole</artifactId> 
 			<version>3.0.0-SNAPSHOT</version> </dependency> -->
-			
+
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
