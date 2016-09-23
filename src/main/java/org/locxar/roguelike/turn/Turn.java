@@ -23,7 +23,7 @@ package org.locxar.roguelike.turn;
 
 import org.locxar.roguelike.actors.Npc;
 import org.locxar.roguelike.actors.Player;
-import org.locxar.roguelike.core.Type;
+import org.locxar.roguelike.core.TypeTurn;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +38,7 @@ public class Turn
     private static final Logger LOGGER = LoggerFactory.getLogger(Turn.class);
 
     /** The type. */
-    private Type type = null;
+    private TypeTurn typeTurn = null;
 
     /** The start turn. */
     private boolean startTurn;
@@ -49,7 +49,7 @@ public class Turn
     public Turn()
     {
         // TODO Auto-generated constructor stub
-        this.setTYPE(Type.PLAYER);
+        this.setTYPE(TypeTurn.PLAYER);
     }
 
     /**
@@ -58,7 +58,7 @@ public class Turn
      * @param a
      *            the type
      */
-    public Turn(final Type a)
+    public Turn(final TypeTurn a)
     {
         // TODO Auto-generated constructor stub
         this.setTYPE(a);
@@ -69,9 +69,9 @@ public class Turn
      *
      * @return the type
      */
-    public final Type getTYPE()
+    public final TypeTurn getTYPE()
     {
-        return type;
+        return typeTurn;
     }
 
     /**
@@ -80,9 +80,9 @@ public class Turn
      * @param a
      *            the new type
      */
-    public final void setTYPE(final Type a)
+    public final void setTYPE(final TypeTurn a)
     {
-        this.type = a;
+        this.typeTurn = a;
     }
 
     /**
@@ -101,7 +101,7 @@ public class Turn
     public final void turnListener(final Turn turn, final Player player, final Npc npc)
     {
 
-        switch (turn.type.getTypeId())
+        switch (turn.typeTurn.getTypeId())
         {
         case 0:
             playerTurn(player, npc);
@@ -135,7 +135,7 @@ public class Turn
             System.out.println("Actionpoints over 10: " + player.getActionPoints());
             player.setActionPoints(player.getActionPoints() - 1);
         }
-        this.setTYPE(Type.NPC);
+        this.setTYPE(TypeTurn.NPC);
     }
 
     /**
@@ -155,7 +155,7 @@ public class Turn
             System.out.println("Actionpoints over 10: " + npc.getActionPoints());
             npc.setActionPoints(npc.getActionPoints() - 1);
         }
-        this.setTYPE(Type.PLAYER);
+        this.setTYPE(TypeTurn.PLAYER);
     }
 
 }

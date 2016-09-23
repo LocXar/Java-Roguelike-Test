@@ -66,14 +66,14 @@ public class PlanGenerator
                 if (i == 0 || i == MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber() || j == 0
                         || j == MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber())
                 {
-                    map.put(loc, new Character('+'));
+                    map.put(loc, new Character('#'));
                 } else
                 {
-                    map.put(loc, new Character('-'));
+                    map.put(loc, new Character('.'));
                 }
             }
         }
-        System.out.println("Durchläufe: " + counter);
+        // System.out.println("Durchläufe: " + counter);
         return map;
     }
 }

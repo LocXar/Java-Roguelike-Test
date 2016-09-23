@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author LocXar
  */
-public enum Type
+public enum TypeTurn
 {
 
     /** The player. */
@@ -38,7 +38,7 @@ public enum Type
     NPC(1);
 
     /** The Constant slf4jLogger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(Type.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TypeTurn.class);
 
     /** The type. */
     private int type;
@@ -49,7 +49,7 @@ public enum Type
      * @param id
      *            the id
      */
-    Type(final int id)
+    TypeTurn(final int id)
     {
         this.type = id;
     }

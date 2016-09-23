@@ -19,48 +19,87 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.locxar.roguelike.plan;
+package org.locxar.roguelike.core;
 
-import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface IPlan.
+ * The Enum Type.
  *
  * @author LocXar
  */
-public interface IPlan
+public enum TypeTile
 {
-    /**
-     * Gets the map.
-     *
-     * @return the map
-     */
-    Map<Location, Character> getMap();
+
+    /** The player. */
+    DIRT('.'),
+    /** The npc. */
+   DIRTWALL('#');
+
+    /** The Constant slf4jLogger. */
+    private static final Logger LOGGER = LoggerFactory.getLogger(TypeTile.class);
+
+    /** The type. */
+    private int type;
 
     /**
-     * Sets the map.
+     * Instantiates a new type.
      *
-     * @param m the m
+     * @param x
+     *            the x
      */
-    void setMap(final Map<Location, Character> m);
+    TypeTile(final char x)
+    {
+	boolean walkable;
+	char tile;
+
+        switch (x)
+        {
+        	case '.':
+        	    walkable = true;
+        	    tile = x;
+        	    break;
+        	case '#':
+        	    walkable = false;
+        	    tile  = x;
+        	    break;
+        	default:
+        	    walkable = false;
+        	    tile = '#';
+        	    break;
+        }
+    }
 
     /**
-     * Adds the location.
+     * Gets the type.
      *
-     * @param m the m
-     * @param loc the loc
-     * @param s the s
-     * @return the map
+     * @return the type
      */
-    Map<Location, Character> addLocation(final Map<Location, Character> m, final Location loc, final Character s);
+    public int getType()
+    {
+        return type;
+    }
 
     /**
-     * Gets the location.
+     * Sets the type.
      *
-     * @param m the m
-     * @param loc the loc
-     * @return the location
+     * @param t the new type
      */
-    Character getLocation(final Map<Location, Character> m, final Location loc);
+    public void setType(final int t)
+    {
+        this.type = t;
+    }
+
+    /**
+     * Gets the type id.
+     *
+     * @return the type id
+     */
+    public int getTypeId()
+    {
+        LOGGER.info("getTypeTileId started");
+        return this.type;
+    }
 }

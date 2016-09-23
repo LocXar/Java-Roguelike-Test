@@ -87,7 +87,7 @@ public class CycleController
     private boolean newTurn = true;
 
     /** The time start. */
-    final long timeStart = System.currentTimeMillis();
+    private final long timeStart = System.currentTimeMillis();
 
     /**
      * Instantiates a new boot cycle.
@@ -127,7 +127,6 @@ public class CycleController
 		{
 		    LOGGER.info("I: " + i + "\n" + "J: " + j);
 		    LOGGER.info("HashMap value: " + m.get(new Location(i,
-		    
 		    c = m.get(new Location(i, j)).hashCode();
 		    System.out.println(c);
 		    outFileStream.write(c);
@@ -177,7 +176,7 @@ public class CycleController
 	for (Character c : this.map.getMap().values())
 	{
 	    i++;
-	    System.out.println(i + ": " + c);
+	    // System.out.println(i + ": " + c);
 	}
 
 	// System.out.println(this.map.getLocation(this.map.getMap(),
@@ -254,7 +253,7 @@ public class CycleController
 	final long timeEnd = System.currentTimeMillis();
 	Date d = new Date((timeEnd - timeStart));
 	SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
-	System.out.println(sdf.format(d));
+	System.out.println("Time running: " + sdf.format(d));
 	while (true)
 	{
 	}
