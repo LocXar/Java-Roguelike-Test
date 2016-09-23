@@ -57,13 +57,13 @@ public class PlanGenerator
     public final Map<Location, Character> generateTestMap(final Map<Location, Character> map)
     {
         int counter = 0;
-        for (int i = 0; i <= MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); i++) // Zeilen
+        for (int i = 1; i <= MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); i++) // Zeilen
         {
-            for (int j = 0; j <= MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); j++) // Spalten
+            for (int j = 1; j <= MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber(); j++) // Spalten
             {
                 counter++;
                 Location loc = new Location(i, j);
-                if (i == 0 || i == MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber() || j == 0
+                if (i == 1 || i == MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber() || j == 0
                         || j == MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber())
                 {
                     map.put(loc, new Character('#'));

@@ -46,6 +46,7 @@ import org.locxar.roguelike.plan.Plan;
 import org.locxar.roguelike.turn.Turn;
 import org.locxar.roguelike.util.plan.PlanGenerator;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class BootCycle.
  *
@@ -99,8 +100,7 @@ public class CycleController
     /**
      * Write 2 file.
      *
-     * @param m
-     *            the map
+     * @param args the arguments
      */
     /*private static void write2File(final Map<Location, Character> m)
     {
@@ -175,8 +175,8 @@ public class CycleController
 	int i = 0;
 	for (Character c : this.map.getMap().values())
 	{
+	    // System.out.println("Value of " + i + ":" + c);
 	    i++;
-	    // System.out.println(i + ": " + c);
 	}
 
 	// System.out.println(this.map.getLocation(this.map.getMap(),
