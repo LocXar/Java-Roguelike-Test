@@ -21,11 +21,20 @@
  */
 package org.locxar.roguelike.plan;
 
+import java.util.Map;
+
 /**
  * @author LocXar
  *
  */
-public interface AbstractPlan
+public interface IPlan
 {
-
+	public abstract Map<Location, Character> getMap();
+	
+	public abstract void setMap(final Map<Location, Character> m);
+	
+	public abstract Map<Location, Character> addLocation(final Map<Location, Character> m, final Location loc,
+            final Character s);
+	
+	public abstract Character getLocation(final Map<Location, Character> m, final Location loc);
 }

@@ -21,10 +21,9 @@
  */
 package org.locxar.roguelike.plan;
 
-import org.locxar.roguelike.core.MagicNumbers;
+import static org.locxar.roguelike.core.MagicNumbers.*;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -96,8 +95,8 @@ public class Plan
     public final Map<Location, Character> addLocation(final Map<Location, Character> m, final Location loc,
             final Character s)
     {
-        if (loc.getX() >= 0 && loc.getX() < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber() && loc.getY() >= 0
-                && loc.getY() < MagicNumbers.TWOHUNDREDFIFTYSIX.getNumber())
+        if (loc.getX() >= 0 && loc.getX() < TWOHUNDREDFIFTYSIX.getNumber() && loc.getY() >= 0
+                && loc.getY() < TWOHUNDREDFIFTYSIX.getNumber())
         {
             if (map.containsKey(loc))
             {
